@@ -21,9 +21,11 @@
     },
     "dependencies": {
         "@tooldepot/types": "workspace:*",
+        "dompurify": "^3.2.0",
         "marked": "^12.0.2"
     },
     "devDependencies": {
+        "@types/dompurify": "^3.2.0",
         "@types/node": "^20.14.0",
         "@types/react": "^18.3.0",
         "react": "^18.3.1",
