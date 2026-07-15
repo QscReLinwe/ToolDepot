@@ -1,0 +1,44 @@
+{
+    "name": "@tooldepot/tool-calc",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "计算器: 安全表达式求值 (无 eval)",
+    "bin": {
+        "td-calc": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/cli-core": "workspace:*",
+        "@tooldepot/math-core": "workspace:*",
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "20.14.0",
+        "@types/react": "18.3.0",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "calc",
+        "name": "计算器",
+        "description": "安全的四则运算求值器，支持 + - * / ( )、小数与负数。",
+        "category": "work",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-calc"
+    }
+}

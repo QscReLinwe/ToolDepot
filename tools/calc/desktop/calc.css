@@ -1,0 +1,487 @@
+﻿.calc-panel {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex: 1 1 auto;
+  box-sizing: border-box;
+  gap: 12px;
+  font-family: inherit;
+  animation: fadeInUp 0.4s ease-out;
+}
+.calc-display {
+  width: 100%;
+  box-sizing: border-box;
+  background: var(--surface, #fff);
+  border: 1.5px solid var(--border, #e2e2e2);
+  border-radius: 14px;
+  padding: 16px 20px;
+  min-height: 140px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 6px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+.calc-input {
+  font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+  font-size: 26px;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--text, #121212);
+  background: transparent;
+  border: none;
+  outline: none;
+  width: 100%;
+  text-align: right;
+  direction: ltr;
+  padding: 4px 0;
+  caret-color: var(--accent, #1A73E8);
+}
+.calc-input::placeholder {
+  color: var(--muted, #bbb);
+  font-weight: 400;
+  font-size: 20px;
+}
+.calc-hint-label {
+  font-size: 12px;
+  color: var(--accent, #1A73E8);
+  font-weight: 500;
+  margin-top: 2px;
+}
+.calc-result {
+  font-family: 'SF Mono', 'Consolas', 'Monaco', monospace;
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--muted, #888);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 100%;
+  text-align: right;
+  direction: ltr;
+}
+.calc-tabs {
+  display: flex;
+  border: 1.5px solid var(--border, #e2e2e2);
+  border-radius: 10px;
+  overflow: hidden;
+  background: var(--surface, #f7f7f7);
+}
+.calc-tab {
+  flex: 1;
+  padding: 8px 6px;
+  border: none;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  background: transparent;
+  color: var(--text-secondary, #555);
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+.calc-tab:hover {
+  background: color-mix(in srgb, var(--text, #121212) 4%, transparent);
+}
+.calc-tab-active {
+  background: var(--accent, #1A73E8) !important;
+  color: #fff;
+  box-shadow: 0 1px 4px color-mix(in srgb, var(--accent, #1A73E8) 30%, transparent);
+}
+.calc-btn-var {
+  font-family: 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 1.1rem;
+  background: var(--surface, #f5f3f0);
+  color: var(--text, #121212);
+}
+.calc-btn-var:hover {
+  background: color-mix(in srgb, var(--text, #121212) 8%, var(--surface, #fff));
+}
+.calc-body {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.calc-body.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+.calc-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  user-select: none;
+  background: var(--surface, #f0eeec);
+  color: var(--text, #121212);
+  font-size: 1.35rem;
+  min-height: 56px;
+  padding: 6px;
+  transition: background 0.12s ease, filter 0.12s ease, transform 0.08s ease;
+}
+.calc-btn:hover {
+  filter: brightness(0.97);
+}
+.calc-btn:active {
+  transform: scale(0.96);
+  filter: brightness(0.92);
+}
+.calc-btn-fn {
+  font-size: 0.95rem;
+  background: color-mix(in srgb, #2E7D32 14%, var(--surface, #fff));
+  color: #2E7D32;
+}
+.calc-btn-fn:hover {
+  background: color-mix(in srgb, #2E7D32 22%, var(--surface, #fff));
+}
+.calc-btn-unary {
+  background: color-mix(in srgb, #E65100 14%, var(--surface, #fff));
+  color: #E65100;
+}
+.calc-btn-unary:hover {
+  background: color-mix(in srgb, #E65100 22%, var(--surface, #fff));
+}
+.calc-btn-op {
+  background: color-mix(in srgb, var(--accent, #1A73E8) 14%, var(--surface, #fff));
+  color: var(--accent, #1A73E8);
+}
+.calc-btn-op:hover {
+  background: color-mix(in srgb, var(--accent, #1A73E8) 22%, var(--surface, #fff));
+}
+.calc-btn-paren {
+  background: color-mix(in srgb, var(--accent, #1A73E8) 8%, var(--surface, #fff));
+  color: var(--text, #121212);
+}
+.calc-btn-back {
+  background: color-mix(in srgb, var(--text, #121212) 6%, var(--surface, #fff));
+  color: var(--text, #121212);
+}
+.calc-btn-clear {
+  background: color-mix(in srgb, #dc2626 16%, var(--surface, #fff));
+  color: #dc2626;
+  font-weight: 700;
+}
+.calc-btn-clear:hover {
+  background: color-mix(in srgb, #dc2626 24%, var(--surface, #fff));
+}
+.calc-btn-const {
+  font-style: italic;
+  background: color-mix(in srgb, #00695C 14%, var(--surface, #fff));
+  color: #00695C;
+}
+.calc-btn-ans {
+  font-size: 0.95rem;
+  background: var(--surface, #f5f3f0);
+  color: var(--text, #121212);
+}
+.calc-btn-frac {
+  background: color-mix(in srgb, #8b5cf6 14%, var(--surface, #fff));
+  color: var(--accent-purple, #7c3aed);
+}
+.calc-btn-frac:hover {
+  background: color-mix(in srgb, #8b5cf6 22%, var(--surface, #fff));
+}
+.calc-btn-sp {
+  background: color-mix(in srgb, #7c3aed 14%, var(--surface, #fff));
+  color: #7c3aed;
+}
+.calc-btn-sp:hover {
+  background: color-mix(in srgb, #7c3aed 22%, var(--surface, #fff));
+}
+.calc-btn-eq {
+  background: var(--accent, #1A73E8);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.calc-btn-eq:hover {
+  filter: brightness(1.12);
+  box-shadow: 0 2px 10px color-mix(in srgb, var(--accent, #1A73E8) 30%, transparent);
+}
+.calc-btn-eq:active {
+  transform: scale(0.97);
+  filter: brightness(0.95);
+}
+.calc-btn-eval {
+  font-size: 1.3rem;
+}
+.calc-btn-wide {
+  grid-column: span 2;
+}
+.calc-history {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--muted, #999);
+  max-height: 200px;
+  overflow-y: auto;
+  border-top: 1px solid var(--border, #ececec);
+  padding-top: 8px;
+}
+.calc-history-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: var(--muted, #666);
+}
+.calc-history-item {
+  padding: 4px 6px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.12s ease, color 0.12s ease;
+}
+.calc-history-item:hover {
+  background: color-mix(in srgb, var(--accent, #1A73E8) 10%, transparent);
+  color: var(--accent, #1A73E8);
+}
+.calc-error-text {
+  font-size: 13px;
+  color: #dc2626;
+  font-weight: 500;
+  margin-top: 2px;
+  text-align: right;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.calc-hint {
+  margin-top: 4px;
+  font-size: 11px;
+  color: var(--muted, #aaa);
+  text-align: center;
+}
+/* ===== Math tree rendering (MathNodeView) ===== */
+
+.calc-tree-display {
+  width: 100%;
+  text-align: left;
+  direction: ltr;
+  font-family: 'Times New Roman', 'STIX', serif;
+  font-size: 28px;
+  line-height: 1.6;
+  padding: 8px 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+}
+
+/* ── Cursor ── */
+
+.math-cursor {
+  display: inline-block;
+  width: 2.5px;
+  height: 1.4em;
+  background: var(--accent, #1A73E8);
+  margin: 0 0.5px;
+  vertical-align: text-bottom;
+  animation: math-blink 1s step-end infinite;
+}
+
+@keyframes math-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* ── Leaf nodes ── */
+
+.math-number {
+  font-family: 'Times New Roman', 'STIX', serif;
+  font-size: 1em;
+}
+.math-var {
+  font-family: 'Times New Roman', 'STIX', serif;
+  font-style: italic;
+  font-size: 1em;
+}
+.math-const {
+  font-family: 'Times New Roman', 'STIX', serif;
+  font-style: italic;
+  font-size: 1em;
+}
+
+/* ── Operator ── */
+
+.math-op {
+  padding: 0 3px;
+  font-family: 'Times New Roman', 'STIX', serif;
+  font-size: 1em;
+}
+
+/* ── Binary expression ── */
+
+.math-binary {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+/* ── Fraction ── */
+
+.math-frac {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 2px;
+}
+.math-frac-num {
+  display: block;
+  padding: 0 6px 2px;
+}
+.math-frac-line {
+  display: block;
+  width: 100%;
+  min-width: 20px;
+  height: 2px;
+  background: var(--text, #121212);
+  border-radius: 1px;
+}
+.math-frac-den {
+  display: block;
+  padding: 2px 6px 0;
+}
+
+/* ── Power ── */
+
+.math-power {
+  display: inline-flex;
+  align-items: flex-start;
+  white-space: nowrap;
+}
+.math-power-base {
+  font-size: 1em;
+}
+.math-power-exp {
+  font-size: 0.75em;
+  vertical-align: super;
+  line-height: 1;
+}
+
+/* ── Sum / Prod ── */
+
+.math-sumprod {
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
+  margin: 0 3px;
+}
+.math-sumprod-symbol {
+  font-size: 1.6em;
+  font-weight: 600;
+  padding: 0 3px;
+  line-height: 1;
+}
+.math-sumprod-limits {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 2px;
+  font-size: 0.7em;
+  line-height: 1.2;
+  vertical-align: middle;
+}
+.math-sumprod-lower {
+  display: block;
+}
+.math-sumprod-upper {
+  display: block;
+}
+.math-sumprod-expr {
+  font-size: 1em;
+  margin-left: 3px;
+}
+
+/* ── Function ── */
+
+.math-func {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.math-func-name {
+  font-family: 'Times New Roman', 'STIX', serif;
+  font-style: italic;
+  font-size: 1em;
+}
+.math-func-paren {
+  font-family: 'Times New Roman', 'STIX', serif;
+  font-size: 1em;
+}
+
+/* ── Negate ── */
+
+.math-neg {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.math-neg-sign {
+  font-size: 1em;
+}
+.math-neg-paren {
+  font-size: 1em;
+}
+
+/* ── Parentheses ── */
+
+.math-paren {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.math-paren-open,
+.math-paren-close {
+  font-size: 1em;
+}
+
+/* ── Factorial ── */
+
+.math-factorial {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.math-factorial-symbol {
+  font-size: 1em;
+}
+
+/* ── Percent ── */
+
+.math-percent {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+.math-percent-symbol {
+  font-size: 1em;
+}
+
+/* ── Unknown fallback ── */
+
+.math-unknown {
+  color: #dc2626;
+  font-weight: 700;
+}
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  .calc-btn,
+  .calc-btn-eq,
+  .calc-cursor,
+  .math-cursor {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important;
+  }
+}

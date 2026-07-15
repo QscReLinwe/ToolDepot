@@ -1,0 +1,43 @@
+{
+    "name": "@tooldepot/tool-compound-interest",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "Calculate compound interest with optional periodic contributions",
+    "bin": {
+        "td-compound-interest": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.0",
+        "react": "^18.3.1",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "compound-interest",
+        "name": "复利计算器",
+        "description": "计算复利，支持定期定额投入。",
+        "category": "work",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-compound-interest"
+    }
+}

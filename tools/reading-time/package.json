@@ -1,0 +1,43 @@
+{
+    "name": "@tooldepot/tool-reading-time",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "Estimate reading time for text",
+    "bin": {
+        "td-reading-time": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.0",
+        "react": "^18.3.1",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "reading-time",
+        "name": "阅读时间估算",
+        "description": "估算文本阅读时间。",
+        "category": "work",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-reading-time"
+    }
+}

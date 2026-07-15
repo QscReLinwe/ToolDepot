@@ -1,0 +1,50 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "packages/types"
+    },
+    {
+      "path": "hub/core"
+    },
+    {
+      "path": "hub/cli"
+    },
+    {
+      "path": "tools/base-convert"
+    },
+    {
+      "path": "tools/base64"
+    },
+    {
+      "path": "tools/calc"
+    },
+    {
+      "path": "tools/case-convert"
+    },
+    {
+      "path": "tools/json-formatter"
+    },
+    {
+      "path": "tools/text-hash"
+    },
+    {
+      "path": "tools/timestamp"
+    },
+    {
+      "path": "tools/url-codec"
+    },
+    {
+      "path": "tools/uuid-gen"
+    },
+    {
+      "path": "packages/math-core"
+    },
+    {
+      "path": "tools/equation"
+    },
+    {
+      "path": "tools/graph"
+    }
+  ]
+}

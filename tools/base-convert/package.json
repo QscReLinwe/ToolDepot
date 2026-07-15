@@ -1,0 +1,43 @@
+{
+    "name": "@tooldepot/tool-base-convert",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "进制转换: 在 2–36 进制间转换数字,支持 BigInt",
+    "bin": {
+        "td-base-convert": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/cli-core": "workspace:*",
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "20.14.0",
+        "@types/react": "18.3.0",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "base-convert",
+        "name": "进制转换器",
+        "description": "在 2–36 进制间转换数字，支持 BigInt 与非法字符检测。",
+        "category": "dev",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-base-convert"
+    }
+}

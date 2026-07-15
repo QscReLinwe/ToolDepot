@@ -1,0 +1,43 @@
+{
+    "name": "@tooldepot/tool-uuid-gen",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "UUID 生成工具: 生成随机 UUID (v4)",
+    "bin": {
+        "td-uuid-gen": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/cli-core": "workspace:*",
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "20.14.0",
+        "@types/react": "18.3.0",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "uuid-gen",
+        "name": "UUID 生成器",
+        "description": "生成随机 UUID（v4）。",
+        "category": "dev",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-uuid-gen"
+    }
+}

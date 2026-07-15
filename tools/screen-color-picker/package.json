@@ -1,0 +1,43 @@
+{
+    "name": "@tooldepot/tool-screen-color-picker",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "Pick a screen color via EyeDropper and convert hex/rgb/hsl",
+    "bin": {
+        "td-screen-color-picker": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.0",
+        "react": "^18.3.1",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "screen-color-picker",
+        "name": "屏幕取色器",
+        "description": "通过 EyeDropper 取色并转换 hex/rgb/hsl。",
+        "category": "life",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-screen-color-picker"
+    }
+}

@@ -1,0 +1,44 @@
+{
+    "name": "@tooldepot/tool-markdown-preview",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "实时预览 Markdown 渲染效果",
+    "bin": {
+        "td-markdown-preview": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/types": "workspace:*",
+        "marked": "^12.0.2"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.0",
+        "react": "^18.3.1",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "markdown-preview",
+        "name": "Markdown 预览",
+        "description": "将 Markdown 实时渲染为 HTML。",
+        "category": "dev",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-markdown-preview"
+    }
+}

@@ -1,0 +1,45 @@
+{
+    "name": "@tooldepot/tool-timezone-converter",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "Convert timestamps between timezones with DST support",
+    "bin": {
+        "td-timezone-converter": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/types": "workspace:*",
+        "date-fns": "^3.6.0",
+        "date-fns-tz": "^3.1.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.0",
+        "react": "^18.3.1",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "timezone-converter",
+        "name": "两地时间 / 时区转换",
+        "description": "在时区间转换时间（支持夏令时）。",
+        "category": "work",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-timezone-converter"
+    }
+}

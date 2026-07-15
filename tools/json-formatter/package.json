@@ -1,0 +1,43 @@
+{
+    "name": "@tooldepot/tool-json-formatter",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "JSON 格式化工具: 美化 / 压缩 / 校验",
+    "bin": {
+        "td-json-formatter": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/cli-core": "workspace:*",
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "20.14.0",
+        "@types/react": "18.3.0",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "json-formatter",
+        "name": "JSON 格式化",
+        "description": "JSON 美化、压缩与校验。",
+        "category": "dev",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-json-formatter"
+    }
+}

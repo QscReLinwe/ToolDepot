@@ -1,0 +1,20 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": ".",
+    "noEmit": false,
+    "jsx": "react-jsx",
+    "composite": true
+  },
+  "include": [
+    "core",
+    "cli",
+    "desktop"
+  ],
+  "references": [
+    {
+      "path": "../../packages/types"
+    }
+  ]
+}

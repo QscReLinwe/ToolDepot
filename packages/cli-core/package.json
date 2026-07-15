@@ -1,0 +1,23 @@
+{
+  "name": "@tooldepot/cli-core",
+  "version": "0.1.0",
+  "private": true,
+
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "Shared CLI infrastructure for ToolDepot tools",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tooldepot/types": "workspace:*",
+    "commander": "^12.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.0",
+    "typescript": "^5.9.2"
+  }
+}

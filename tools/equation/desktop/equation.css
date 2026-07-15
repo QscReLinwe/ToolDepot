@@ -1,0 +1,301 @@
+/* ==============================
+   方程求解 (Equation Solver) — Tool styles
+   ============================== */
+
+.equation-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  color: #121212;
+  font-family: inherit;
+}
+
+.equation-title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: 700;
+  color: #1a1a1a;
+}
+
+/* ---- layout: input + result side by side ---- */
+
+.equation-layout {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.equation-panel {
+  flex: 1 1 280px;
+  min-width: 260px;
+  display: flex;
+  flex-direction: column;
+}
+
+.equation-field-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: #555;
+  margin-bottom: 6px;
+}
+
+/* ---- equation display ---- */
+
+.equation-display {
+  min-height: 44px;
+  box-sizing: border-box;
+  padding: 10px 12px;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 8px;
+  background: #fafafa;
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', monospace;
+  font-size: 15px;
+  color: #121212;
+  word-break: break-all;
+  margin-bottom: 8px;
+}
+
+.equation-error {
+  color: #d32f2f;
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+
+/* ---- button grid ---- */
+
+.equation-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.equation-row {
+  display: flex;
+  gap: 6px;
+}
+
+.equation-row-wide {
+  margin-top: 2px;
+}
+
+.equation-btn {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 0;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  color: #121212;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: inherit;
+}
+
+.equation-btn:hover {
+  border-color: var(--accent, #0EA5E9);
+  background: color-mix(in srgb, var(--accent, #0EA5E9) 8%, #fff);
+}
+
+.equation-btn:active {
+  transform: scale(0.97);
+}
+
+.equation-btn.fn,
+.equation-btn.const {
+  background: #f3f0ff;
+  border-color: #ddd6fe;
+  color: #6d28d9;
+}
+
+.equation-btn.op,
+.equation-btn.paren,
+.equation-btn.eq {
+  background: #eef2ff;
+  border-color: #c7d2fe;
+  color: #1e40af;
+}
+
+.equation-btn.clear {
+  background: #fef2f2;
+  border-color: #fecaca;
+  color: #dc2626;
+}
+
+.equation-btn.back {
+  flex: 1;
+  background: #f1f5f9;
+  border-color: #e2e8f0;
+  color: #475569;
+}
+
+.equation-btn.solve {
+  flex: 2;
+  background: var(--accent, #0EA5E9);
+  border-color: var(--accent, #0EA5E9);
+  color: #fff;
+}
+
+.equation-btn.solve:hover {
+  filter: brightness(1.08);
+  background: var(--accent, #0EA5E9);
+}
+
+/* ---- result display ---- */
+
+.equation-result {
+  border: 1.5px solid #e2e2e2;
+  border-radius: 8px;
+  padding: 14px 16px;
+  background: #fff;
+}
+
+.equation-result-empty {
+  color: #999;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.equation-result-x {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.equation-result-x-label {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333;
+}
+
+.equation-result-x-value {
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--accent, #0EA5E9);
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  word-break: break-all;
+}
+
+.equation-result-meta {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.8;
+}
+
+.equation-result-meta strong {
+  color: #333;
+}
+
+/* ---- examples ---- */
+
+.equation-examples {
+  margin-top: 14px;
+}
+
+.equation-examples-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.equation-example {
+  display: block;
+  width: 100%;
+  text-align: left;
+  box-sizing: border-box;
+  padding: 6px 10px;
+  margin-bottom: 4px;
+  border: 1px solid #ececec;
+  border-radius: 6px;
+  background: #fafafa;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  font-size: 12px;
+  color: #444;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.equation-example:hover {
+  border-color: var(--accent, #0EA5E9);
+  color: var(--accent, #0EA5E9);
+}
+
+/* ---- canvas ---- */
+
+.equation-canvas-section {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.equation-canvas-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.equation-btn-reset {
+  padding: 5px 14px;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 8px;
+  background: #f0f0f0;
+  font-size: 12px;
+  font-weight: 600;
+  color: #121212;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s ease;
+}
+
+.equation-btn-reset:hover {
+  background: #e4e4e4;
+}
+
+.equation-canvas-wrap {
+  position: relative;
+  height: 420px;
+  border: 1.5px solid #e2e2e2;
+  border-radius: 10px;
+  overflow: hidden;
+  cursor: grab;
+  background: #fff;
+}
+
+.equation-canvas-wrap:active {
+  cursor: grabbing;
+}
+
+.equation-canvas {
+  display: block;
+  width: 100%;
+  height: 420px;
+}
+
+.equation-tooltip {
+  position: absolute;
+  left: var(--tx, 12px);
+  top: var(--ty, 12px);
+  pointer-events: none;
+  background: rgba(17, 17, 17, 0.88);
+  color: #fff;
+  font-size: 12px;
+  line-height: 1.5;
+  padding: 6px 9px;
+  border-radius: 6px;
+  font-family: 'SFMono-Regular', Consolas, monospace;
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.equation-tooltip-lhs { color: #93c5fd; }
+.equation-tooltip-rhs { color: #fdba74; }
+
+.equation-hint {
+  font-size: 11px;
+  color: #aaa;
+  text-align: center;
+}

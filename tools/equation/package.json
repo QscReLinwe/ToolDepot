@@ -1,0 +1,44 @@
+{
+    "name": "@tooldepot/tool-equation-solver",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "方程求解工具: 二分法求解方程 f(x)=g(x)，支持线性、二次、三角方程，并提供函数图像与交点可视化",
+    "bin": {
+        "td-equation-solver": "./dist/cli/index.js"
+    },
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./cli": "./dist/cli/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/cli-core": "workspace:*",
+        "@tooldepot/math-core": "workspace:*",
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "20.14.0",
+        "@types/react": "18.3.0",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "equation-solver",
+        "name": "方程求解器",
+        "description": "通过二分法求解 f(x)=g(x)（线性、二次、三角），含图像与交点。",
+        "category": "dev",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "cli": "./dist/cli/index.js",
+            "desktop": "./dist/desktop/index.js"
+        },
+        "bin": "td-equation-solver"
+    }
+}

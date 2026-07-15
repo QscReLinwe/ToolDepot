@@ -1,0 +1,39 @@
+{
+    "name": "tooldepot",
+    "version": "10.0.1",
+    "private": true,
+    "license": "Apache-2.0",
+    "description": "ToolDepot - practical collection of small dev tools",
+    "scripts": {
+        "dev": "pnpm --filter \"./hub/desktop\" dev",
+        "build": "pnpm -r build",
+        "typecheck": "pnpm -r typecheck",
+        "sync-tools": "node hub/core/scripts/sync-tools.mjs",
+        "lint": "biome check .",
+        "lint:fix": "biome check --write .",
+        "format": "biome format --write .",
+        "test": "vitest run",
+        "test:watch": "vitest"
+    },
+    "engines": {
+        "node": ">=18"
+    },
+    "packageManager": "pnpm@11.11.0",
+    "devDependencies": {
+        "@biomejs/biome": "^2.5.3",
+        "@types/node": "^20.14.0",
+        "@types/react": "^18.3.0",
+        "@types/react-dom": "^18.3.0",
+        "commander": "^12.1.0",
+        "playwright": "^1.61.1",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "typescript": "^5.9.2",
+        "vitest": "^3.2.7"
+    },
+    "bin": {
+        "tooldepot": "./hub/cli/dist/cli.js",
+        "tooldepot-eq": "./tools/equation/cli/index.ts",
+        "tooldepot-base": "./tools/base-convert/cli/index.ts"
+    }
+}

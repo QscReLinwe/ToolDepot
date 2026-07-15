@@ -1,0 +1,37 @@
+{
+    "name": "@tooldepot/tool-function-graph",
+    "version": "0.1.0",
+    "private": true,
+
+    "license": "Apache-2.0",
+    "type": "module",
+    "description": "函数图像: 输入函数表达式绘制二维图像, 支持拖拽平移、滚轮缩放与悬停查看函数值和斜率",
+    "exports": {
+        ".": "./dist/core/index.js",
+        "./core": "./dist/core/index.js",
+        "./desktop": "./dist/desktop/index.js"
+    },
+    "scripts": {
+        "build": "tsc",
+        "typecheck": "tsc --noEmit"
+    },
+    "dependencies": {
+        "@tooldepot/math-core": "workspace:*",
+        "@tooldepot/types": "workspace:*"
+    },
+    "devDependencies": {
+        "@types/node": "20.14.0",
+        "@types/react": "18.3.0",
+        "typescript": "^5.9.2"
+    },
+    "tooldepot": {
+        "id": "function-graph",
+        "name": "函数绘图器",
+        "description": "绘制二维函数图像，支持拖拽平移、滚轮缩放与悬停数值/斜率。",
+        "category": "dev",
+        "entry": {
+            "core": "./dist/core/index.js",
+            "desktop": "./dist/desktop/index.js"
+        }
+    }
+}

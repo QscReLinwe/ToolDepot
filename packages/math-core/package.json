@@ -1,0 +1,22 @@
+{
+  "name": "@tooldepot/math-core",
+  "version": "0.1.0",
+  "private": true,
+
+  "license": "Apache-2.0",
+  "type": "module",
+  "description": "Core math engine: complex numbers, expression evaluation, equation solving, function graphing",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tooldepot/types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.0",
+    "typescript": "^5.9.2"
+  }
+}

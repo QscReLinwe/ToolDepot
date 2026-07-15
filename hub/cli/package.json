@@ -1,0 +1,33 @@
+{
+  "name": "@tooldepot/hub-cli",
+  "version": "0.1.0",
+  "private": true,
+
+  "license": "Apache-2.0",
+  "description": "ToolDepot CLI entry point �?command-line interface for all tools",
+  "type": "module",
+  "bin": {
+    "tooldepot": "./dist/cli.js"
+  },
+  "scripts": {
+    "build": "tsc",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@tooldepot/hub-core": "workspace:*",
+    "@tooldepot/types": "workspace:*",
+    "commander": "^12.1.0"
+  },
+  "main": "./dist/cli.js",
+  "types": "./dist/cli.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/cli.d.ts",
+      "default": "./dist/cli.js"
+    }
+  },
+  "devDependencies": {
+    "@types/node": "^20.14.0",
+    "typescript": "^5.9.2"
+  }
+}

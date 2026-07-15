@@ -1,0 +1,55 @@
+{
+  "$schema": "https://biomejs.dev/schemas/2.5.3/schema.json",
+  "assist": { "actions": { "source": { "organizeImports": "on" } } },
+  "linter": {
+    "enabled": true,
+    "rules": {
+      "preset": "recommended",
+      "complexity": {
+        "noBannedTypes": "off",
+        "noForEach": "off"
+      },
+      "style": {
+        "noNonNullAssertion": "off",
+        "useNumberNamespace": "off"
+      },
+      "suspicious": {
+        "noExplicitAny": "off"
+      }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "indentStyle": "space",
+    "indentWidth": 2,
+    "lineWidth": 120,
+    "lineEnding": "lf"
+  },
+  "javascript": {
+    "formatter": {
+      "quoteStyle": "single",
+      "semicolons": "always",
+      "trailingCommas": "all",
+      "arrowParentheses": "always"
+    }
+  },
+  "json": {
+    "formatter": {
+      "enabled": true,
+      "indentStyle": "space",
+      "indentWidth": 2
+    }
+  },
+  "files": {
+    "includes": [
+      "packages/*/src/**/*.ts",
+      "tools/*/core/**/*.ts",
+      "tools/*/cli/**/*.ts",
+      "tools/*/desktop/**/*.tsx",
+      "hub/*/src/**/*.ts",
+      "hub/*/src/**/*.tsx",
+      "scripts/**/*.ts"
+    ],
+    "ignoreUnknown": true
+  }
+}

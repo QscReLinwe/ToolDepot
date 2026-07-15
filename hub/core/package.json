@@ -1,0 +1,29 @@
+{
+  "name": "@tooldepot/hub-core",
+  "version": "0.1.0",
+  "private": true,
+
+  "license": "Apache-2.0",
+  "description": "ToolDepot core registry �?tool registration, discovery, and metadata management",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "sync-tools": "node ./scripts/sync-tools.mjs",
+    "typecheck": "tsc --noEmit",
+    "build": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@tooldepot/types": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "20.14.0",
+    "typescript": "^5.9.2"
+  }
+}
