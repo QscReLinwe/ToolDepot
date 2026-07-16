@@ -5,11 +5,13 @@ Tools live in `tools/<id>/`. Each tool is a package with 4 entry points.
 
 ## 1. Scaffold
 
-From repo root run:
+There is no generator script. From repo root, copy the template package and rename it:
 ```
-node scripts/create-tool.mjs <id> "<Name>" <category> "<description>"
+cp -r tools/_template tools/<id>
 ```
-This creates `tools/<id>/` with template `package.json`, `tsconfig.json`, `core/index.ts`, `cli/index.ts`, `desktop/index.tsx`. **Then OVERWRITE those 4–5 files with real implementations** (the template is a stub).
+This creates `tools/<id>/` with template `package.json`, `tsconfig.json`, `core/index.ts`, `cli/index.ts`, `desktop/index.tsx`. **Then OVERWRITE those 4–5 files with real implementations** (the template is a stub). Also edit `tools/<id>/package.json` to set `name`, `bin`, `exports` paths, and `tooldepot.id/name/description/category/bin` (see §5).
+
+> Note: `scripts/create-tool.mjs` does not exist. Scaffolding is done by copying `tools/_template` as shown above.
 
 `id` = kebab-case (e.g. `bmi-bfr-bmr`). `category` ∈ `format|encode|convert|generate|crypto|utility|dev` (or any string).
 

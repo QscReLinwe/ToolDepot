@@ -147,7 +147,7 @@ ToolDepot/
 
 ### 贡献
 
-欢迎贡献新工具或改进！请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)（待创建）。
+欢迎贡献新工具或改进！请先阅读贡献指南（待创建）。
 
 ---
 
@@ -214,4 +214,4 @@ ToolDepot/
 
 ### Contributing
 
-Contributions are welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) (to be created) before starting.
+Contributions are welcome! Please read the contribution guide (to be created) before starting.
