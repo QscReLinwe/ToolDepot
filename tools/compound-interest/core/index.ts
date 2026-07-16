@@ -9,9 +9,13 @@ export interface CompoundInterestInput {
   years: number;
   /** Compounding frequency per year: 1, 4, 12, or 365. */
   compoundsPerYear: number;
-  /** Optional fixed contribution added every month. */
+  /**
+   * Fixed contribution expressed as a monthly amount. It is converted to a
+   * per-compounding-period amount (contribution frequency = compounding
+   * frequency) via `monthlyContribution * (12 / compoundsPerYear)`.
+   */
   monthlyContribution?: number;
-  /** Whether the monthly contribution is applied at the start or end of each period. */
+  /** Whether the contribution is applied at the start or end of each compounding period. */
   contributionAt?: 'start' | 'end';
 }
 
@@ -73,14 +77,39 @@ export const tool: Tool<CompoundInterestInput, CompoundInterestOutput> = {
     }
 
     const n = compoundsPerYear;
-    const totalPeriods = Math.round(n * years);
+    // Periods may be fractional for non-integer years (e.g. 2.5 years at
+    // monthly compounding = 30 periods). We use the exact exponential formula
+    // instead of an integer loop so fractional periods are handled precisely.
+    const periods = n * years;
     const periodicRate = annualRate / 100 / n;
+    // Contribution frequency defaults to the compounding frequency. The input
+    // is a monthly amount, so convert it to a per-period amount.
     const contributionPerPeriod = (monthlyContribution ?? 0) * (12 / n);
 
-    let balance = principal;
-    const schedule: CompoundInterestSchedulePoint[] = [];
+    const growth = (1 + periodicRate) ** periods;
 
-    for (let period = 1; period <= totalPeriods; period++) {
+    // Future value of the initial principal: P * (1 + r)^periods
+    const fvPrincipal = principal * growth;
+
+    // Future value of the contributions (ordinary annuity / annuity due).
+    let fvContributions: number;
+    if (periodicRate === 0) {
+      fvContributions = contributionPerPeriod * periods;
+    } else {
+      const annuityFactor = (growth - 1) / periodicRate;
+      fvContributions = contributionPerPeriod * annuityFactor * (contributionAt === 'start' ? 1 + periodicRate : 1);
+    }
+
+    const futureValue = round2(fvPrincipal + fvContributions);
+    const totalContributions = round2(principal + contributionPerPeriod * periods);
+    const totalInterest = round2(futureValue - totalContributions);
+
+    // Schedule: exact per-integer-period recurrence, plus a final point at the
+    // exact future value when the total period count is fractional.
+    const schedule: CompoundInterestSchedulePoint[] = [];
+    let balance = principal;
+    const fullPeriods = Math.floor(periods);
+    for (let period = 1; period <= fullPeriods; period++) {
       if (contributionAt === 'start') {
         balance += contributionPerPeriod;
       }
@@ -90,10 +119,9 @@ export const tool: Tool<CompoundInterestInput, CompoundInterestOutput> = {
       }
       schedule.push({ period, balance: round2(balance) });
     }
-
-    const totalContributions = principal + (monthlyContribution ?? 0) * 12 * years;
-    const futureValue = round2(balance);
-    const totalInterest = round2(futureValue - totalContributions);
+    if (fullPeriods < periods) {
+      schedule.push({ period: round2(periods), balance: futureValue });
+    }
 
     return {
       ok: true,

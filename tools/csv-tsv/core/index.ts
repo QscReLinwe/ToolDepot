@@ -54,7 +54,9 @@ function parseDelimited(text: string, delimiter: string): string[][] {
     }
     if (c === '\n') {
       row.push(field);
-      rows.push(row);
+      if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+        rows.push(row);
+      }
       row = [];
       field = '';
       i++;
@@ -63,7 +65,9 @@ function parseDelimited(text: string, delimiter: string): string[][] {
     if (c === '\r') {
       if (text[i + 1] === '\n') i++;
       row.push(field);
-      rows.push(row);
+      if (row.length > 1 || (row.length === 1 && row[0] !== '')) {
+        rows.push(row);
+      }
       row = [];
       field = '';
       i++;

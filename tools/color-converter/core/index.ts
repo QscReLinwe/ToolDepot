@@ -82,9 +82,16 @@ function parseCmyk(input: string): Rgb | null {
     .toLowerCase()
     .match(/^cmyka?\(\s*([^)]+)\s*\)$/);
   if (!m) return null;
-  const p = (m[1] ?? '').split(',').map((s) => parseFloat(s.replace('%', '').trim()));
+  const body = m[1] ?? '';
+  const parts = body.split(',').map((s) => s.trim());
+  const p = parts.map((s) => parseFloat(s.replace('%', '').trim()));
   if (p.length < 4 || p.slice(0, 4).some((n) => Number.isNaN(n))) return null;
-  const scale = p.slice(0, 4).some((n) => n > 1) ? 100 : 1;
+  // Scale is determined by the literal '%' sign in the input: a '%' means the
+  // value is a 0-100 percentage, otherwise it is a 0-1 ratio. Mixed dirty data
+  // (some channels written with '%' and others without) is ambiguous and rejected.
+  const withPercent = parts.slice(0, 4).filter((s) => /%/.test(s)).length;
+  if (withPercent > 0 && withPercent < 4) return null;
+  const scale = withPercent === 4 ? 100 : 1;
   const c = (p[0] ?? 0) / scale;
   const mm = (p[1] ?? 0) / scale;
   const y = (p[2] ?? 0) / scale;

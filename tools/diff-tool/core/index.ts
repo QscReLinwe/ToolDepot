@@ -36,7 +36,7 @@ function buildTokens(text: string, mode: DiffMode, ignoreWhitespace: boolean): T
   if (mode === 'line') {
     return raw.map((v) => ({ disp: v, cmp: v.trim() }));
   }
-  return raw.filter((v) => !/\s/.test(v)).map((v) => ({ disp: v, cmp: v }));
+  return raw.map((v) => ({ disp: v, cmp: /\s/.test(v) ? '' : v }));
 }
 
 type Op = { type: 'equal' | 'del' | 'add'; token: Token };
