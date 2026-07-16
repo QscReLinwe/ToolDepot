@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type LifeCategory = 'cooking' | 'length' | 'area';
 
@@ -38,8 +38,8 @@ const FACTORS: Record<LifeCategory, Record<string, UnitDef>> = {
     // mass → g
     oz: { base: 'g', factor: 28.3495 },
     g: { base: 'g', factor: 1 },
-    lb: { base: 'kg', factor: 0.453592 },
-    kg: { base: 'kg', factor: 1 },
+    lb: { base: 'g', factor: 453.592 },
+    kg: { base: 'g', factor: 1000 },
   },
   length: {
     inch: { base: 'm', factor: 0.0254 },
@@ -60,7 +60,7 @@ function isFiniteNumber(v: unknown): v is number {
   return typeof v === 'number' && Number.isFinite(v);
 }
 
-export const tool = {
+export const tool: Tool<UnitConverterLifeInput, UnitConverterLifeOutput> = {
   id: 'unit-converter-life',
   name: '生活单位换算',
   description: '转换日常单位：烹饪、长度、面积。',

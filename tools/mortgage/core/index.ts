@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface MortgageInput {
   /** Home price or total loan amount. If downPayment is given, this is the home price. */
@@ -32,7 +32,7 @@ function round2(n: number): number {
   return Math.round((n + Number.EPSILON) * 100) / 100;
 }
 
-export const tool = {
+export const tool: Tool<MortgageInput, MortgageOutput> = {
   id: 'mortgage',
   name: '房贷 / 车贷计算器',
   description: '计算月供、总利息与还款计划。',
@@ -98,12 +98,13 @@ export const tool = {
 
       if (payment >= balance + interest) {
         const finalPayment = balance + interest;
+        const finalPrincipal = finalPayment - interest;
         paidLoan += finalPayment;
         balance = 0;
         payoffMonths = month;
         amortization.push({
           month,
-          principal: round2(balance),
+          principal: round2(finalPrincipal),
           interest: round2(interest),
           balance: 0,
         });

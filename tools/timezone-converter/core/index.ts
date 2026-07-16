@@ -1,5 +1,5 @@
-import type { ToolOutput } from '@tooldepot/types';
-import { format as formatDate, fromZonedTime, toZonedTime } from 'date-fns-tz';
+import type { Tool, ToolOutput } from '@tooldepot/types';
+import { formatInTimeZone, fromZonedTime } from 'date-fns-tz';
 
 export interface TimezoneConverterInput {
   /** Source timestamp (ISO 8601, Unix ms, or Unix s) */
@@ -50,7 +50,7 @@ function parseTimestamp(ts: string | number): Date {
   throw new Error(`Invalid timestamp: ${ts}`);
 }
 
-export const tool = {
+export const tool: Tool<TimezoneConverterInput, TimezoneConverterOutput> = {
   id: 'timezone-converter',
   name: '时区转换器',
   description: '支持夏令时的跨时区时间戳转换',
@@ -71,19 +71,43 @@ export const tool = {
         return { ok: false, error: '无效的时间戳' };
       }
 
-      // Convert source time in source timezone to UTC
-      const utcDate = fromZonedTime(date, fromTz);
+      // parseTimestamp returns a Date whose LOCAL fields are the wall-clock
+      // digits the user entered (ISO strings parse as local; Unix values are
+      // absolute instants whose local fields are their wall-clock). Rebuild a
+      // local-naive Date from those components so fromZonedTime (which reads the
+      // local fields) interprets them as wall-clock time in fromTz. Passing the
+      // raw parsed Date would let fromZonedTime treat it as already-UTC and
+      // double-apply the offset.
+      const wallClock = new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds(),
+      );
 
-      // Convert UTC to target timezone
-      const targetDate = toZonedTime(utcDate, toTz);
-      const result = formatDate(targetDate, format, { timeZone: toTz });
+      // Interpret the wall-clock time as being in fromTz to get the true UTC instant.
+      const utcDate = fromZonedTime(wallClock, fromTz);
+
+      // Format the UTC instant directly in the target timezone.
+      const result = formatInTimeZone(utcDate, toTz, format);
 
       return {
         ok: true,
         data: {
           result,
-          from: { timestamp: date.getTime().toString(), tz: fromTz, iso: date.toISOString() },
-          to: { timestamp: targetDate.getTime().toString(), tz: toTz, iso: targetDate.toISOString() },
+          from: {
+            timestamp: date.getTime().toString(),
+            tz: fromTz,
+            iso: formatInTimeZone(utcDate, fromTz, "yyyy-MM-dd'T'HH:mm:ssXXX"),
+          },
+          to: {
+            timestamp: utcDate.getTime().toString(),
+            tz: toTz,
+            iso: formatInTimeZone(utcDate, toTz, "yyyy-MM-dd'T'HH:mm:ssXXX"),
+          },
         },
         mimeType: 'application/json',
       };
