@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface Base64ImageInput {
   /** 'encode' turns a data URL / raw base64 into raw base64; 'decode' turns base64 into a data URL. */
@@ -24,7 +24,7 @@ function isBase64(s: string): boolean {
   return /^[A-Za-z0-9+/]*={0,2}$/.test(cleaned);
 }
 
-export const tool = {
+export const tool: Tool<Base64ImageInput, Base64ImageOutput> = {
   id: 'base64-image',
   name: 'Base64 图片',
   description: '将图片与 Base64 Data URL 互相转换。',

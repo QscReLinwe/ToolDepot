@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type GraphQLOperation = 'query' | 'mutation' | 'subscription';
 
@@ -65,7 +65,7 @@ function renderSelection(tree: Map<string, SelectionNode>, indent: string): stri
   return lines;
 }
 
-export const tool = {
+export const tool: Tool<GraphQLBuilderInput, GraphQLBuilderOutput> = {
   id: 'graphql-builder',
   name: 'GraphQL 查询构建器',
   description: '可视化构建与检查 GraphQL 查询。',

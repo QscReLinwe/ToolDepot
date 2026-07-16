@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type MinifyMode = 'css' | 'js';
 
@@ -150,7 +150,7 @@ function minifyJs(code: string): string {
   return res.trim();
 }
 
-export const tool = {
+export const tool: Tool<CssJsMinifyInput, CssJsMinifyOutput> = {
   id: 'css-js-minify',
   name: 'CSS/JS 压缩',
   description: '压缩 CSS 与 JavaScript 以减小体积。',

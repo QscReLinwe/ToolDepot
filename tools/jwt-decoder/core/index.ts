@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface JwtDecoderInput {
   /** The JWT string (header.payload.signature). */
@@ -41,7 +41,7 @@ function toIso(claim: unknown): string | undefined {
   return Number.isNaN(d.getTime()) ? undefined : d.toISOString();
 }
 
-export const tool = {
+export const tool: Tool<JwtDecoderInput, JwtDecoderOutput> = {
   id: 'jwt-decoder',
   name: 'JWT 解码器',
   description: '不校验地解码与查看 JWT 令牌。',

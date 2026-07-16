@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface LunarCalendarInput {
   date: string;
@@ -354,7 +354,7 @@ function getGanzhiDay(date: Date): string {
   return TIANGAN[(((diffDays + 10) % 10) + 10) % 10]! + DIZHI[(((diffDays + 1) % 12) + 12) % 12]!;
 }
 
-export const tool = {
+export const tool: Tool<LunarCalendarInput, LunarCalendarOutput> = {
   id: 'lunar-calendar',
   name: '农历查询',
   description: '公历转农历、生肖、二十四节气、节日查询',

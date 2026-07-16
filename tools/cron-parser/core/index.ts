@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface CronParserInput {
   /** Standard 5-field cron expression: "minute hour day-of-month month day-of-week". */
@@ -174,7 +174,7 @@ function matches(
   return sets.dayOfMonth.has(dom) || sets.dayOfWeek.has(dow);
 }
 
-export const tool = {
+export const tool: Tool<CronParserInput, CronParserOutput> = {
   id: 'cron-parser',
   name: 'Cron 表达式解析',
   description: '将 Cron 表达式解析为可读的调度说明。',

@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type DiffMode = 'line' | 'char';
 
@@ -83,7 +83,7 @@ function lcsDiff(a: Token[], b: Token[]): Op[] {
   return ops;
 }
 
-export const tool = {
+export const tool: Tool<DiffToolInput, DiffToolOutput> = {
   id: 'diff-tool',
   name: 'Diff 对比工具',
   description: '以行或字符级对比两段文本。',

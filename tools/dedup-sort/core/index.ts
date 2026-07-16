@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type DedupSortOrder = 'asc' | 'desc' | 'none';
 
@@ -36,7 +36,7 @@ function numOf(line: string): number {
   return Number.isNaN(n) ? Number.NaN : n;
 }
 
-export const tool = {
+export const tool: Tool<DedupSortInput, DedupSortOutput> = {
   id: 'dedup-sort',
   name: '去重 / 排序',
   description: '对文本行去重并排序。',

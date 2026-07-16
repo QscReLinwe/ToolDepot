@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type CsvTsvMode = 'csv2tsv' | 'tsv2csv' | 'csv2json' | 'json2csv';
 
@@ -96,7 +96,7 @@ function toCsv(rows: string[][], delimiter: string): string {
   return rows.map((r) => r.map((f) => csvQuote(f, delimiter)).join(delimiter)).join('\n');
 }
 
-export const tool = {
+export const tool: Tool<CsvTsvInput, CsvTsvOutput> = {
   id: 'csv-tsv',
   name: 'CSV / TSV 工具',
   description: '在 CSV、TSV 与 JSON 间转换。',

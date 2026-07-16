@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface CurtainCalcInput {
   windowWidthCm?: number;
@@ -24,7 +24,7 @@ function isFiniteNumber(v: unknown): v is number {
   return typeof v === 'number' && Number.isFinite(v);
 }
 
-export const tool = {
+export const tool: Tool<CurtainCalcInput, CurtainCalcOutput> = {
   id: 'curtain-calc',
   name: '窗帘用量计算',
   description: '计算窗帘布料宽度、长度与幅数（含褶皱与卷边）。',

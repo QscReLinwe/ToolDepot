@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type ColorFormat = 'auto' | 'hex' | 'rgb' | 'hsl' | 'hsv' | 'cmyk';
 
@@ -240,7 +240,7 @@ function parseToRgb(input: string, from: ColorFormat): Rgb | null {
   }
 }
 
-export const tool = {
+export const tool: Tool<ColorConverterInput, ColorConverterOutput> = {
   id: 'color-converter',
   name: '颜色转换器',
   description: '在 hex/rgb/hsl/hsv/cmyk 间转换颜色。',

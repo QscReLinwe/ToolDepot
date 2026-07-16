@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface CompoundInterestInput {
   /** Initial lump sum. */
@@ -33,7 +33,7 @@ function round2(n: number): number {
   return Math.round((n + Number.EPSILON) * 100) / 100;
 }
 
-export const tool = {
+export const tool: Tool<CompoundInterestInput, CompoundInterestOutput> = {
   id: 'compound-interest',
   name: '复利计算器',
   description: '计算复利，支持定期定额投入。',

@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 import { marked } from 'marked';
 
 export interface MarkdownPreviewInput {
@@ -11,7 +11,7 @@ export interface MarkdownPreviewOutput {
   html: string;
 }
 
-export const tool = {
+export const tool: Tool<MarkdownPreviewInput, MarkdownPreviewOutput> = {
   id: 'markdown-preview',
   name: 'Markdown 预览',
   description: '将 Markdown 实时渲染为 HTML。',

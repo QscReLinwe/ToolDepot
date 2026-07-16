@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface ElectricityCostInput {
   /** Device power in watts. */
@@ -24,7 +24,7 @@ function isFiniteNumber(v: unknown): v is number {
   return typeof v === 'number' && Number.isFinite(v);
 }
 
-export const tool = {
+export const tool: Tool<ElectricityCostInput, ElectricityCostOutput> = {
   id: 'electricity-cost',
   name: '家电电费估算',
   description: '根据用量与电价估算电费。',

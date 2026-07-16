@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface InvoiceLine {
   name: string;
@@ -29,7 +29,7 @@ function round2(n: number): number {
   return Math.round((n + Number.EPSILON) * 100) / 100;
 }
 
-export const tool = {
+export const tool: Tool<InvoiceTaxInput, InvoiceTaxOutput> = {
   id: 'invoice-tax',
   name: '发票税额计算',
   description: '计算发票小计、折扣、税额与合计',

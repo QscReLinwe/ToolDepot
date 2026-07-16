@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type EntityMode = 'encode' | 'decode';
 
@@ -57,7 +57,7 @@ function decodeText(text: string): string {
   });
 }
 
-export const tool = {
+export const tool: Tool<HtmlEntityInput, HtmlEntityOutput> = {
   id: 'html-entity',
   name: 'HTML 实体编解码',
   description: '编码与解码 HTML 实体及数字字符引用。',

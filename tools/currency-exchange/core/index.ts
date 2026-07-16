@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface CurrencyExchangeInput {
   amount: number;
@@ -40,7 +40,7 @@ function round6(n: number): number {
   return Math.round((n + Number.EPSILON) * 1e6) / 1e6;
 }
 
-export const tool = {
+export const tool: Tool<CurrencyExchangeInput, CurrencyExchangeOutput> = {
   id: 'currency-exchange',
   name: '汇率换算',
   description: '按汇率表在货币间换算金额。',
