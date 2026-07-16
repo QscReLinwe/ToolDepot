@@ -144,7 +144,7 @@ export const Component: React.FC<ToolViewProps<ElectricityCostInput, Electricity
               {currency}
             </div>
             <div style={{ fontSize: 14, marginTop: 6 }}>
-              每月（0天）约{' '}
+              每月（按30天）约{' '}
               <b>
                 {result.monthlyCost?.toFixed(2)}
                 {currency}

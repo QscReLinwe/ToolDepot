@@ -140,7 +140,7 @@ function drawTooltip(ctx: CanvasRenderingContext2D, h: Hover, W: number, H: numb
 
 /* ---------- component ---------- */
 
-export const Component: FC<ToolViewProps> = ({ tool: _tool }) => {
+export const Component: FC<ToolViewProps> = () => {
   const [expr, setExpr] = useState('sin(x)');
   const [vp, setVp] = useState<Viewport>(DEFAULT_X);
   const [error, setError] = useState('');

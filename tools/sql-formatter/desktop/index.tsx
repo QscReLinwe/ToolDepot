@@ -30,7 +30,6 @@ export const Component: React.FC<ToolViewProps<SqlFormatterInput, SqlFormatterOu
       const out = await tool.run({ sql, language, keywordCase });
       if (out.ok && out.data) {
         setResult(out.data);
-        if (out.data.error) setError(out.data.error);
       } else {
         setError(out.error || '未知错误');
       }
