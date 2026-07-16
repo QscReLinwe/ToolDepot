@@ -84,10 +84,16 @@ export const tool: Tool<BmiBfrBmrInput, BmiBfrBmrOutput> = {
       const log = Math.log10;
       let navy: number;
       if (sex === 'male') {
+        if (waistCm - neckCm <= 0) {
+          return { ok: false, error: '腰围必须大于颈围才能用 US Navy 公式估算体脂' };
+        }
         navy = 495 / (1.0324 - 0.19077 * log(waistCm - neckCm) + 0.15456 * log(heightCm)) - 450;
       } else {
         if (typeof hipCm !== 'number') {
           return { ok: false, error: 'hipCm is required for the female US Navy body-fat method' };
+        }
+        if (waistCm + hipCm - neckCm <= 0) {
+          return { ok: false, error: '腰围加臀围必须大于颈围才能用 US Navy 公式估算体脂' };
         }
         navy = 495 / (1.29579 - 0.35004 * log(waistCm + hipCm - neckCm) + 0.221 * log(heightCm)) - 450;
       }

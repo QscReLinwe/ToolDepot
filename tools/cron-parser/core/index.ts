@@ -132,7 +132,7 @@ function buildHumanDescription(fields: string[]): string {
         .split(',')
         .flatMap((t) => t.split('-'))
         .map((v) => Number(v));
-      const names = dowVals.map((v) => DOW_NAMES[v === 7 ? 0 : v]).filter(Boolean);
+      const names = dowVals.map((v) => DOW_NAMES[v]).filter(Boolean);
       dayParts.push(`on ${names.join(', ')}`);
     }
     parts.push(dayParts.join(' '));
@@ -168,6 +168,9 @@ function matches(
   if (!sets.minute.has(minute)) return false;
   if (!sets.hour.has(hour)) return false;
   if (!sets.month.has(month)) return false;
+  // When a field is "*" its set is universal (contains every valid value), so
+  // the universal field always matches. Using AND here is equivalent to OR for
+  // the non-universal field; for the both-"*" case both always match.
   if (domAll || dowAll) {
     return sets.dayOfMonth.has(dom) && sets.dayOfWeek.has(dow);
   }
@@ -242,15 +245,8 @@ export const tool: Tool<CronParserInput, CronParserOutput> = {
       };
     } catch (e) {
       return {
-        ok: true,
-        data: {
-          valid: false,
-          error: e instanceof Error ? e.message : String(e),
-          descriptions: [],
-          nextRuns: [],
-          humanDescription: '',
-        },
-        mimeType: 'application/json',
+        ok: false,
+        error: e instanceof Error ? e.message : String(e),
       };
     }
   },

@@ -83,10 +83,6 @@ function parseTLV(reader: Reader): Asn1Node {
   return { cls, constructed, tag, value, children };
 }
 
-function _findChild(node: Asn1Node, cls: number, tag: number): Asn1Node | undefined {
-  return node.children.find((c) => c.cls === cls && c.tag === tag);
-}
-
 function bytesToText(bytes: Uint8Array): string {
   try {
     if (typeof TextDecoder !== 'undefined') {
@@ -279,7 +275,7 @@ export const tool: Tool<SslDecoderInput, SslDecoderOutput> = {
     }
     const match = pem.match(/-----BEGIN CERTIFICATE-----([\s\S]*?)-----END CERTIFICATE-----/i);
     if (!match) {
-      return { ok: true, data: { valid: false, error: 'Invalid PEM: missing BEGIN/END CERTIFICATE markers' } };
+      return { ok: false, error: 'Invalid PEM: missing BEGIN/END CERTIFICATE markers' };
     }
 
     try {
@@ -335,8 +331,8 @@ export const tool: Tool<SslDecoderInput, SslDecoderOutput> = {
       };
     } catch (e) {
       return {
-        ok: true,
-        data: { valid: false, error: e instanceof Error ? e.message : String(e) },
+        ok: false,
+        error: e instanceof Error ? e.message : String(e),
       };
     }
   },
