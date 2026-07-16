@@ -6,8 +6,14 @@
   "license": "Apache-2.0",
   "type": "module",
   "description": "Shared CLI infrastructure for ToolDepot tools",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "exports": {
-    ".": "./src/index.ts"
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
   },
   "scripts": {
     "typecheck": "tsc --noEmit"
