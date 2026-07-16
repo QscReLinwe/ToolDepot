@@ -18,27 +18,6 @@ export interface TimezoneConverterOutput {
   to: { timestamp: string; tz: string; iso: string };
 }
 
-const _COMMON_TIMEZONES = [
-  'UTC',
-  'America/New_York',
-  'America/Chicago',
-  'America/Denver',
-  'America/Los_Angeles',
-  'America/Anchorage',
-  'Pacific/Honolulu',
-  'Europe/London',
-  'Europe/Paris',
-  'Europe/Berlin',
-  'Europe/Moscow',
-  'Asia/Dubai',
-  'Asia/Kolkata',
-  'Asia/Shanghai',
-  'Asia/Tokyo',
-  'Asia/Singapore',
-  'Australia/Sydney',
-  'Pacific/Auckland',
-];
-
 function parseTimestamp(ts: string | number): Date {
   if (typeof ts === 'number') {
     return new Date(ts < 1e12 ? ts * 1000 : ts);

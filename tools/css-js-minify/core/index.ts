@@ -106,8 +106,14 @@ function minifyJs(code: string): string {
     }
     if (c === '/') {
       const prev = out[out.length - 1];
-      const isRegex = prev === undefined || /[=:(,;!&|?{}[\]+*~/>\s]/.test(prev);
-      if (isRegex) {
+      const next = code[i + 1] ?? '';
+      // Treat as a regex literal unless it is clearly a division operator.
+      // Division: preceded by an identifier/number/")"/"]" and followed by
+      // an identifier/number/"("/"!" — never by whitespace or a keyword.
+      const prevIsOperand = prev !== undefined && /[A-Za-z0-9_)\]]/.test(prev);
+      const nextIsOperand = /[A-Za-z0-9_(!]/.test(next);
+      const isDivision = prevIsOperand && nextIsOperand;
+      if (!isDivision) {
         out += c;
         i++;
         let inClass = false;

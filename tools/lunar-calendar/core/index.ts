@@ -314,17 +314,13 @@ function lunarDate(date: Date): { year: number; month: number; day: number; leap
     }
     const prevCnyDate = new Date(prevYear, prevCny.month - 1, prevCny.day);
     const prevDiffDays = Math.floor((date.getTime() - prevCnyDate.getTime()) / 86400000);
-    return lunarDateFromCny(prevYear, prevCnyDate, prevDiffDays);
+    return lunarDateFromCny(prevYear, prevDiffDays);
   }
 
-  return lunarDateFromCny(year, cnyDate, diffDays);
+  return lunarDateFromCny(year, diffDays);
 }
 
-function lunarDateFromCny(
-  year: number,
-  _cnyDate: Date,
-  diffDays: number,
-): { year: number; month: number; day: number; leap: boolean } {
+function lunarDateFromCny(year: number, diffDays: number): { year: number; month: number; day: number; leap: boolean } {
   const LUNAR_MONTH_DAYS = [29, 30, 29, 30, 29, 30, 29, 30, 29, 30, 29, 30];
 
   let month = 1;
@@ -369,7 +365,6 @@ export const tool: Tool<LunarCalendarInput, LunarCalendarOutput> = {
     }
 
     const lunar = lunarDate(date);
-    const _year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
 

@@ -45,8 +45,46 @@ function estimatePool(password: string): number {
   if (/[a-z]/.test(password)) pool += 26;
   if (/[A-Z]/.test(password)) pool += 26;
   if (/[0-9]/.test(password)) pool += 10;
-  if (/[^a-zA-Z0-9]/.test(password)) pool += 33; // common symbols
+  // Count only the symbols that ACTUALLY appear, not the full 33-char set.
+  // Overestimating the pool inflates entropy and misleads the user.
+  const symbols = password.match(/[^a-zA-Z0-9]/g);
+  if (symbols) pool += new Set(symbols).size;
   return pool;
+}
+
+// Keyboard-adjacent sequences used to detect trivial patterns.
+const KEYBOARD_SEQUENCES = ['abcdefghijklmnopqrstuvwxyz', 'qwertyuiop', 'asdfghjkl', 'zxcvbnm', '1234567890'];
+
+function findKeyboardSequence(password: string): boolean {
+  const lower = password.toLowerCase();
+  for (const seq of KEYBOARD_SEQUENCES) {
+    for (let i = 0; i + 3 <= seq.length; i++) {
+      const run = seq.slice(i, i + 3);
+      if (lower.includes(run)) return true;
+    }
+  }
+  return false;
+}
+
+/**
+ * Returns an entropy multiplier in (0, 1] that discounts entropy for weak
+ * structural patterns. A value of 1 means "no penalty". The penalty is
+ * conservative: it never invents extra strength, only reduces over-optimistic
+ * estimates.
+ */
+function patternPenalty(password: string): number {
+  let penalty = 1;
+
+  // Repeated-character runs (e.g. "aaa", "1111") drastically cut real entropy.
+  if (/(.)\1\1/.test(password)) penalty *= 0.5;
+
+  // Keyboard-adjacent runs (e.g. "qwerty", "asdf") are trivially guessable.
+  if (findKeyboardSequence(password)) penalty *= 0.75;
+
+  // Common base words embedded anywhere (not just at the start).
+  if (/password|123456|qwerty|admin|letmein|welcome/i.test(password)) penalty *= 0.5;
+
+  return penalty;
 }
 
 function scoreFromEntropy(entropy: number): number {
@@ -108,7 +146,9 @@ export const tool: Tool<PasswordStrengthInput, PasswordStrengthOutput> = {
       };
     }
 
-    const entropy = Math.round(length * Math.log2(pool));
+    // Apply a conservative penalty for weak structural patterns so the
+    // reported entropy never overstates real strength.
+    const entropy = Math.round(length * Math.log2(pool) * patternPenalty(password));
 
     if (COMMON_PASSWORDS.has(password.toLowerCase())) {
       suggestions.push('This is a very common password — avoid it');
@@ -131,7 +171,7 @@ export const tool: Tool<PasswordStrengthInput, PasswordStrengthOutput> = {
     if (/(.)\1\1/.test(password)) {
       suggestions.push('Avoid repeated characters (e.g. "aaa")');
     }
-    if (/^(?:password|123456|qwerty|admin)/i.test(password)) {
+    if (/password|123456|qwerty|admin|letmein|welcome/i.test(password)) {
       suggestions.push('Avoid common base words like "password" or "123456"');
     }
 

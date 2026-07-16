@@ -43,9 +43,12 @@ export const tool: Tool<GraphInput, GraphResult> = {
         return { ok: false, error: '函数在该点无定义或表达式无效' };
       }
       const slope = slopeAt(expression, x);
+      if (!Number.isFinite(slope)) {
+        return { ok: false, error: '无法计算斜率：该点处函数不可导或无定义' };
+      }
       return {
         ok: true,
-        data: { value, slope: Number.isFinite(slope) ? slope : NaN },
+        data: { value, slope },
         mimeType: 'application/json',
       };
     } catch (e) {

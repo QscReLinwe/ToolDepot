@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface HttpCode {
   code: number;
@@ -293,7 +293,7 @@ const HTTP_CODES: HttpCode[] = [
   },
 ];
 
-export const tool = {
+export const tool: Tool<HttpCodesInput, HttpCodesOutput> = {
   id: 'http-codes',
   name: 'HTTP 状态码',
   description: '按状态码、名称或描述查询 HTTP 状态码。',
