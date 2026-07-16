@@ -4,7 +4,7 @@
   "private": true,
 
   "license": "Apache-2.0",
-  "description": "Shared TypeScript type definitions for ToolDepot tools �?Tool, ToolOutput, ToolViewProps",
+  "description": "Shared TypeScript type definitions for ToolDepot tools (Tool, ToolOutput, ToolViewProps)",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
