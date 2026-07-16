@@ -47,8 +47,7 @@
       "tools/*/cli/**/*.ts",
       "tools/*/desktop/**/*.tsx",
       "hub/*/src/**/*.ts",
-      "hub/*/src/**/*.tsx",
-      "scripts/**/*.ts"
+      "hub/*/src/**/*.tsx"
     ],
     "ignoreUnknown": true
   }

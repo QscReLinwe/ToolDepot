@@ -45,6 +45,153 @@
     },
     {
       "path": "tools/graph"
+    },
+    {
+      "path": "hub/desktop"
+    },
+    {
+      "path": "packages/cli-core"
+    },
+    {
+      "path": "tools/alarm"
+    },
+    {
+      "path": "tools/base64-image"
+    },
+    {
+      "path": "tools/bmi-bfr-bmr"
+    },
+    {
+      "path": "tools/color-converter"
+    },
+    {
+      "path": "tools/color-palette"
+    },
+    {
+      "path": "tools/compound-interest"
+    },
+    {
+      "path": "tools/countdown"
+    },
+    {
+      "path": "tools/cron-parser"
+    },
+    {
+      "path": "tools/css-js-minify"
+    },
+    {
+      "path": "tools/csv-tsv"
+    },
+    {
+      "path": "tools/currency-exchange"
+    },
+    {
+      "path": "tools/curtain-calc"
+    },
+    {
+      "path": "tools/date-calc"
+    },
+    {
+      "path": "tools/dedup-sort"
+    },
+    {
+      "path": "tools/diff-tool"
+    },
+    {
+      "path": "tools/electricity-cost"
+    },
+    {
+      "path": "tools/font-preview"
+    },
+    {
+      "path": "tools/gradient-gen"
+    },
+    {
+      "path": "tools/graphql-builder"
+    },
+    {
+      "path": "tools/html-entity"
+    },
+    {
+      "path": "tools/http-codes"
+    },
+    {
+      "path": "tools/invoice-tax"
+    },
+    {
+      "path": "tools/jwt-decoder"
+    },
+    {
+      "path": "tools/lunar-calendar"
+    },
+    {
+      "path": "tools/markdown-preview"
+    },
+    {
+      "path": "tools/mortgage"
+    },
+    {
+      "path": "tools/paint-floor"
+    },
+    {
+      "path": "tools/password-generator"
+    },
+    {
+      "path": "tools/password-strength"
+    },
+    {
+      "path": "tools/personal-budget"
+    },
+    {
+      "path": "tools/placeholder-text"
+    },
+    {
+      "path": "tools/pomodoro"
+    },
+    {
+      "path": "tools/qr-code"
+    },
+    {
+      "path": "tools/random-picker"
+    },
+    {
+      "path": "tools/reading-time"
+    },
+    {
+      "path": "tools/regex-tester"
+    },
+    {
+      "path": "tools/screen-color-picker"
+    },
+    {
+      "path": "tools/sql-formatter"
+    },
+    {
+      "path": "tools/ssl-decoder"
+    },
+    {
+      "path": "tools/text-stats"
+    },
+    {
+      "path": "tools/tile-calc"
+    },
+    {
+      "path": "tools/timezone-converter"
+    },
+    {
+      "path": "tools/tip-split"
+    },
+    {
+      "path": "tools/unit-converter"
+    },
+    {
+      "path": "tools/unit-converter-life"
+    },
+    {
+      "path": "tools/url-parser"
+    },
+    {
+      "path": "tools/xml-json"
     }
   ]
 }

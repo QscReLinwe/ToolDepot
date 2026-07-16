@@ -1,6 +1,6 @@
 {
     "name": "tooldepot",
-    "version": "10.0.2",
+    "version": "10.0.4",
     "private": true,
     "license": "Apache-2.0",
     "description": "ToolDepot - practical collection of small dev tools",
