@@ -26,7 +26,12 @@ function base64UrlDecode(segment: string): string {
   let b64 = segment.replace(/-/g, '+').replace(/_/g, '/');
   const pad = b64.length % 4;
   if (pad) b64 += '='.repeat(4 - pad);
-  const bin = atob(b64);
+  let bin: string;
+  try {
+    bin = atob(b64);
+  } catch {
+    throw new Error('JWT 不是合法的 base64 编码');
+  }
   const bytes = Uint8Array.from(bin, (c) => c.charCodeAt(0));
   return new TextDecoder().decode(bytes);
 }
