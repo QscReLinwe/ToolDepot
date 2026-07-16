@@ -3,697 +3,697 @@ import type { ToolDepotMeta } from '@tooldepot/types';
 
 export const toolRegistry: ToolDepotMeta[] = [
   {
-    id: 'countdown',
-    name: '倒计时',
-    description: '简单倒计时，支持时分秒输入',
-    category: 'utility',
-    entry: {
-      core: 'tools/alarm/dist/core/index.js',
-      cli: 'tools/alarm/dist/cli/index.js',
-      desktop: 'tools/alarm/dist/desktop/index.js',
+    "id": "alarm",
+    "name": "闹钟",
+    "description": "设置指定时间触发提醒",
+    "category": "utility",
+    "entry": {
+      "core": "tools/alarm/dist/core/index.js",
+      "cli": "tools/alarm/dist/cli/index.js",
+      "desktop": "tools/alarm/dist/desktop/index.js"
     },
-    bin: 'td-countdown',
+    "bin": "td-alarm"
   },
   {
-    id: 'base-convert',
-    name: '进制转换器',
-    description: '在 2–36 进制间转换数字，支持 BigInt 与非法字符检测。',
-    category: 'dev',
-    entry: {
-      core: 'tools/base-convert/dist/core/index.js',
-      cli: 'tools/base-convert/dist/cli/index.js',
-      desktop: 'tools/base-convert/dist/desktop/index.js',
+    "id": "base-convert",
+    "name": "进制转换器",
+    "description": "在 2–36 进制间转换数字，支持 BigInt 与非法字符检测。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/base-convert/dist/core/index.js",
+      "cli": "tools/base-convert/dist/cli/index.js",
+      "desktop": "tools/base-convert/dist/desktop/index.js"
     },
-    bin: 'td-base-convert',
+    "bin": "td-base-convert"
   },
   {
-    id: 'base64',
-    name: 'Base64 编解码',
-    description: 'Base64 编码与解码。',
-    category: 'dev',
-    entry: {
-      core: 'tools/base64/dist/core/index.js',
-      cli: 'tools/base64/dist/cli/index.js',
-      desktop: 'tools/base64/dist/desktop/index.js',
+    "id": "base64",
+    "name": "Base64 编解码",
+    "description": "Base64 编码与解码。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/base64/dist/core/index.js",
+      "cli": "tools/base64/dist/cli/index.js",
+      "desktop": "tools/base64/dist/desktop/index.js"
     },
-    bin: 'td-base64',
+    "bin": "td-base64"
   },
   {
-    id: 'base64-image',
-    name: 'Base64 图片',
-    description: '将图片与 Base64 Data URL 互相转换。',
-    category: 'dev',
-    entry: {
-      core: 'tools/base64-image/dist/core/index.js',
-      cli: 'tools/base64-image/dist/cli/index.js',
-      desktop: 'tools/base64-image/dist/desktop/index.js',
+    "id": "base64-image",
+    "name": "Base64 图片",
+    "description": "将图片与 Base64 Data URL 互相转换。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/base64-image/dist/core/index.js",
+      "cli": "tools/base64-image/dist/cli/index.js",
+      "desktop": "tools/base64-image/dist/desktop/index.js"
     },
-    bin: 'td-base64-image',
+    "bin": "td-base64-image"
   },
   {
-    id: 'bmi-bfr-bmr',
-    name: 'BMI / 基础代谢 / 体脂率',
-    description: '计算 BMI、基础代谢率（Mifflin-St Jeor）与体脂率。',
-    category: 'life',
-    entry: {
-      core: 'tools/bmi-bfr-bmr/dist/core/index.js',
-      cli: 'tools/bmi-bfr-bmr/dist/cli/index.js',
-      desktop: 'tools/bmi-bfr-bmr/dist/desktop/index.js',
+    "id": "bmi-bfr-bmr",
+    "name": "BMI / 基础代谢 / 体脂率",
+    "description": "计算 BMI、基础代谢率（Mifflin-St Jeor）与体脂率。",
+    "category": "life",
+    "entry": {
+      "core": "tools/bmi-bfr-bmr/dist/core/index.js",
+      "cli": "tools/bmi-bfr-bmr/dist/cli/index.js",
+      "desktop": "tools/bmi-bfr-bmr/dist/desktop/index.js"
     },
-    bin: 'td-bmi-bfr-bmr',
+    "bin": "td-bmi-bfr-bmr"
   },
   {
-    id: 'calc',
-    name: '计算器',
-    description: '安全的四则运算求值器，支持 + - * / ( )、小数与负数。',
-    category: 'work',
-    entry: {
-      core: 'tools/calc/dist/core/index.js',
-      cli: 'tools/calc/dist/cli/index.js',
-      desktop: 'tools/calc/dist/desktop/index.js',
+    "id": "calc",
+    "name": "计算器",
+    "description": "安全的四则运算求值器，支持 + - * / ( )、小数与负数。",
+    "category": "work",
+    "entry": {
+      "core": "tools/calc/dist/core/index.js",
+      "cli": "tools/calc/dist/cli/index.js",
+      "desktop": "tools/calc/dist/desktop/index.js"
     },
-    bin: 'td-calc',
+    "bin": "td-calc"
   },
   {
-    id: 'case-convert',
-    name: '命名风格转换',
-    description: '在驼峰、蛇形、帕斯卡、短横线命名间转换。',
-    category: 'dev',
-    entry: {
-      core: 'tools/case-convert/dist/core/index.js',
-      cli: 'tools/case-convert/dist/cli/index.js',
-      desktop: 'tools/case-convert/dist/desktop/index.js',
+    "id": "case-convert",
+    "name": "命名风格转换",
+    "description": "在驼峰、蛇形、帕斯卡、短横线命名间转换。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/case-convert/dist/core/index.js",
+      "cli": "tools/case-convert/dist/cli/index.js",
+      "desktop": "tools/case-convert/dist/desktop/index.js"
     },
-    bin: 'td-case-convert',
+    "bin": "td-case-convert"
   },
   {
-    id: 'color-converter',
-    name: '颜色转换器',
-    description: '在 hex/rgb/hsl/hsv/cmyk 间转换颜色。',
-    category: 'life',
-    entry: {
-      core: 'tools/color-converter/dist/core/index.js',
-      cli: 'tools/color-converter/dist/cli/index.js',
-      desktop: 'tools/color-converter/dist/desktop/index.js',
+    "id": "color-converter",
+    "name": "颜色转换器",
+    "description": "在 hex/rgb/hsl/hsv/cmyk 间转换颜色。",
+    "category": "life",
+    "entry": {
+      "core": "tools/color-converter/dist/core/index.js",
+      "cli": "tools/color-converter/dist/cli/index.js",
+      "desktop": "tools/color-converter/dist/desktop/index.js"
     },
-    bin: 'td-color-converter',
+    "bin": "td-color-converter"
   },
   {
-    id: 'color-palette',
-    name: '配色方案生成',
-    description: '基于主色生成配色方案。',
-    category: 'life',
-    entry: {
-      core: 'tools/color-palette/dist/core/index.js',
-      cli: 'tools/color-palette/dist/cli/index.js',
-      desktop: 'tools/color-palette/dist/desktop/index.js',
+    "id": "color-palette",
+    "name": "配色方案生成",
+    "description": "基于主色生成配色方案。",
+    "category": "life",
+    "entry": {
+      "core": "tools/color-palette/dist/core/index.js",
+      "cli": "tools/color-palette/dist/cli/index.js",
+      "desktop": "tools/color-palette/dist/desktop/index.js"
     },
-    bin: 'td-color-palette',
+    "bin": "td-color-palette"
   },
   {
-    id: 'compound-interest',
-    name: '复利计算器',
-    description: '计算复利，支持定期定额投入。',
-    category: 'work',
-    entry: {
-      core: 'tools/compound-interest/dist/core/index.js',
-      cli: 'tools/compound-interest/dist/cli/index.js',
-      desktop: 'tools/compound-interest/dist/desktop/index.js',
+    "id": "compound-interest",
+    "name": "复利计算器",
+    "description": "计算复利，支持定期定额投入。",
+    "category": "work",
+    "entry": {
+      "core": "tools/compound-interest/dist/core/index.js",
+      "cli": "tools/compound-interest/dist/cli/index.js",
+      "desktop": "tools/compound-interest/dist/desktop/index.js"
     },
-    bin: 'td-compound-interest',
+    "bin": "td-compound-interest"
   },
   {
-    id: 'alarm',
-    name: '闹钟',
-    description: '设置指定时间触发提醒',
-    category: 'utility',
-    entry: {
-      core: 'tools/countdown/dist/core/index.js',
-      cli: 'tools/countdown/dist/cli/index.js',
-      desktop: 'tools/countdown/dist/desktop/index.js',
+    "id": "countdown",
+    "name": "倒计时",
+    "description": "设置指定时间触发提醒",
+    "category": "utility",
+    "entry": {
+      "core": "tools/countdown/dist/core/index.js",
+      "cli": "tools/countdown/dist/cli/index.js",
+      "desktop": "tools/countdown/dist/desktop/index.js"
     },
-    bin: 'td-alarm',
+    "bin": "td-countdown"
   },
   {
-    id: 'cron-parser',
-    name: 'Cron 表达式解析',
-    description: '将 Cron 表达式解析为可读的调度说明。',
-    category: 'dev',
-    entry: {
-      core: 'tools/cron-parser/dist/core/index.js',
-      cli: 'tools/cron-parser/dist/cli/index.js',
-      desktop: 'tools/cron-parser/dist/desktop/index.js',
+    "id": "cron-parser",
+    "name": "Cron 表达式解析",
+    "description": "将 Cron 表达式解析为可读的调度说明。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/cron-parser/dist/core/index.js",
+      "cli": "tools/cron-parser/dist/cli/index.js",
+      "desktop": "tools/cron-parser/dist/desktop/index.js"
     },
-    bin: 'td-cron-parser',
+    "bin": "td-cron-parser"
   },
   {
-    id: 'css-js-minify',
-    name: 'CSS/JS 压缩',
-    description: '压缩 CSS 与 JavaScript 以减小体积。',
-    category: 'dev',
-    entry: {
-      core: 'tools/css-js-minify/dist/core/index.js',
-      cli: 'tools/css-js-minify/dist/cli/index.js',
-      desktop: 'tools/css-js-minify/dist/desktop/index.js',
+    "id": "css-js-minify",
+    "name": "CSS/JS 压缩",
+    "description": "压缩 CSS 与 JavaScript 以减小体积。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/css-js-minify/dist/core/index.js",
+      "cli": "tools/css-js-minify/dist/cli/index.js",
+      "desktop": "tools/css-js-minify/dist/desktop/index.js"
     },
-    bin: 'td-css-js-minify',
+    "bin": "td-css-js-minify"
   },
   {
-    id: 'csv-tsv',
-    name: 'CSV / TSV 工具',
-    description: '在 CSV、TSV 与 JSON 间转换。',
-    category: 'dev',
-    entry: {
-      core: 'tools/csv-tsv/dist/core/index.js',
-      cli: 'tools/csv-tsv/dist/cli/index.js',
-      desktop: 'tools/csv-tsv/dist/desktop/index.js',
+    "id": "csv-tsv",
+    "name": "CSV / TSV 工具",
+    "description": "在 CSV、TSV 与 JSON 间转换。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/csv-tsv/dist/core/index.js",
+      "cli": "tools/csv-tsv/dist/cli/index.js",
+      "desktop": "tools/csv-tsv/dist/desktop/index.js"
     },
-    bin: 'td-csv-tsv',
+    "bin": "td-csv-tsv"
   },
   {
-    id: 'currency-exchange',
-    name: '汇率换算',
-    description: '按汇率表在货币间换算金额。',
-    category: 'work',
-    entry: {
-      core: 'tools/currency-exchange/dist/core/index.js',
-      cli: 'tools/currency-exchange/dist/cli/index.js',
-      desktop: 'tools/currency-exchange/dist/desktop/index.js',
+    "id": "currency-exchange",
+    "name": "汇率换算",
+    "description": "按汇率表在货币间换算金额。",
+    "category": "work",
+    "entry": {
+      "core": "tools/currency-exchange/dist/core/index.js",
+      "cli": "tools/currency-exchange/dist/cli/index.js",
+      "desktop": "tools/currency-exchange/dist/desktop/index.js"
     },
-    bin: 'td-currency-exchange',
+    "bin": "td-currency-exchange"
   },
   {
-    id: 'curtain-calc',
-    name: '窗帘用量计算',
-    description: '计算窗帘布料宽度、长度与幅数（含褶皱与卷边）。',
-    category: 'life',
-    entry: {
-      core: 'tools/curtain-calc/dist/core/index.js',
-      cli: 'tools/curtain-calc/dist/cli/index.js',
-      desktop: 'tools/curtain-calc/dist/desktop/index.js',
+    "id": "curtain-calc",
+    "name": "窗帘用量计算",
+    "description": "计算窗帘布料宽度、长度与幅数（含褶皱与卷边）。",
+    "category": "life",
+    "entry": {
+      "core": "tools/curtain-calc/dist/core/index.js",
+      "cli": "tools/curtain-calc/dist/cli/index.js",
+      "desktop": "tools/curtain-calc/dist/desktop/index.js"
     },
-    bin: 'td-curtain-calc',
+    "bin": "td-curtain-calc"
   },
   {
-    id: 'date-calc',
-    name: '日期计算器',
-    description: '加减日期、计算差值与工作日。',
-    category: 'life',
-    entry: {
-      core: 'tools/date-calc/dist/core/index.js',
-      cli: 'tools/date-calc/dist/cli/index.js',
-      desktop: 'tools/date-calc/dist/desktop/index.js',
+    "id": "date-calc",
+    "name": "日期计算器",
+    "description": "加减日期、计算差值与工作日。",
+    "category": "life",
+    "entry": {
+      "core": "tools/date-calc/dist/core/index.js",
+      "cli": "tools/date-calc/dist/cli/index.js",
+      "desktop": "tools/date-calc/dist/desktop/index.js"
     },
-    bin: 'td-date-calc',
+    "bin": "td-date-calc"
   },
   {
-    id: 'dedup-sort',
-    name: '去重 / 排序',
-    description: '对文本行去重并排序。',
-    category: 'work',
-    entry: {
-      core: 'tools/dedup-sort/dist/core/index.js',
-      cli: 'tools/dedup-sort/dist/cli/index.js',
-      desktop: 'tools/dedup-sort/dist/desktop/index.js',
+    "id": "dedup-sort",
+    "name": "去重 / 排序",
+    "description": "对文本行去重并排序。",
+    "category": "work",
+    "entry": {
+      "core": "tools/dedup-sort/dist/core/index.js",
+      "cli": "tools/dedup-sort/dist/cli/index.js",
+      "desktop": "tools/dedup-sort/dist/desktop/index.js"
     },
-    bin: 'td-dedup-sort',
+    "bin": "td-dedup-sort"
   },
   {
-    id: 'diff-tool',
-    name: 'Diff 对比工具',
-    description: '以行或字符级对比两段文本。',
-    category: 'dev',
-    entry: {
-      core: 'tools/diff-tool/dist/core/index.js',
-      cli: 'tools/diff-tool/dist/cli/index.js',
-      desktop: 'tools/diff-tool/dist/desktop/index.js',
+    "id": "diff-tool",
+    "name": "Diff 对比工具",
+    "description": "以行或字符级对比两段文本。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/diff-tool/dist/core/index.js",
+      "cli": "tools/diff-tool/dist/cli/index.js",
+      "desktop": "tools/diff-tool/dist/desktop/index.js"
     },
-    bin: 'td-diff-tool',
+    "bin": "td-diff-tool"
   },
   {
-    id: 'electricity-cost',
-    name: '家电电费估算',
-    description: '根据用量与电价估算电费。',
-    category: 'life',
-    entry: {
-      core: 'tools/electricity-cost/dist/core/index.js',
-      cli: 'tools/electricity-cost/dist/cli/index.js',
-      desktop: 'tools/electricity-cost/dist/desktop/index.js',
+    "id": "electricity-cost",
+    "name": "家电电费估算",
+    "description": "根据用量与电价估算电费。",
+    "category": "life",
+    "entry": {
+      "core": "tools/electricity-cost/dist/core/index.js",
+      "cli": "tools/electricity-cost/dist/cli/index.js",
+      "desktop": "tools/electricity-cost/dist/desktop/index.js"
     },
-    bin: 'td-electricity-cost',
+    "bin": "td-electricity-cost"
   },
   {
-    id: 'equation-solver',
-    name: '方程求解器',
-    description: '通过二分法求解 f(x)=g(x)（线性、二次、三角），含图像与交点。',
-    category: 'dev',
-    entry: {
-      core: 'tools/equation/dist/core/index.js',
-      cli: 'tools/equation/dist/cli/index.js',
-      desktop: 'tools/equation/dist/desktop/index.js',
+    "id": "equation-solver",
+    "name": "方程求解器",
+    "description": "通过二分法求解 f(x)=g(x)（线性、二次、三角），含图像与交点。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/equation/dist/core/index.js",
+      "cli": "tools/equation/dist/cli/index.js",
+      "desktop": "tools/equation/dist/desktop/index.js"
     },
-    bin: 'td-equation-solver',
+    "bin": "td-equation-solver"
   },
   {
-    id: 'font-preview',
-    name: '字体预览',
-    description: '在多种字体中预览文本。',
-    category: 'life',
-    entry: {
-      core: 'tools/font-preview/dist/core/index.js',
-      cli: 'tools/font-preview/dist/cli/index.js',
-      desktop: 'tools/font-preview/dist/desktop/index.js',
+    "id": "font-preview",
+    "name": "字体预览",
+    "description": "在多种字体中预览文本。",
+    "category": "life",
+    "entry": {
+      "core": "tools/font-preview/dist/core/index.js",
+      "cli": "tools/font-preview/dist/cli/index.js",
+      "desktop": "tools/font-preview/dist/desktop/index.js"
     },
-    bin: 'td-font-preview',
+    "bin": "td-font-preview"
   },
   {
-    id: 'gradient-gen',
-    name: '渐变色生成器',
-    description: '基于色标生成 CSS 渐变。',
-    category: 'life',
-    entry: {
-      core: 'tools/gradient-gen/dist/core/index.js',
-      cli: 'tools/gradient-gen/dist/cli/index.js',
-      desktop: 'tools/gradient-gen/dist/desktop/index.js',
+    "id": "gradient-gen",
+    "name": "渐变色生成器",
+    "description": "基于色标生成 CSS 渐变。",
+    "category": "life",
+    "entry": {
+      "core": "tools/gradient-gen/dist/core/index.js",
+      "cli": "tools/gradient-gen/dist/cli/index.js",
+      "desktop": "tools/gradient-gen/dist/desktop/index.js"
     },
-    bin: 'td-gradient-gen',
+    "bin": "td-gradient-gen"
   },
   {
-    id: 'function-graph',
-    name: '函数绘图器',
-    description: '绘制二维函数图像，支持拖拽平移、滚轮缩放与悬停数值/斜率。',
-    category: 'dev',
-    entry: {
-      core: 'tools/graph/dist/core/index.js',
-      desktop: 'tools/graph/dist/desktop/index.js',
-    },
+    "id": "function-graph",
+    "name": "函数绘图器",
+    "description": "绘制二维函数图像，支持拖拽平移、滚轮缩放与悬停数值/斜率。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/graph/dist/core/index.js",
+      "desktop": "tools/graph/dist/desktop/index.js"
+    }
   },
   {
-    id: 'graphql-builder',
-    name: 'GraphQL 查询构建器',
-    description: '可视化构建与检查 GraphQL 查询。',
-    category: 'dev',
-    entry: {
-      core: 'tools/graphql-builder/dist/core/index.js',
-      cli: 'tools/graphql-builder/dist/cli/index.js',
-      desktop: 'tools/graphql-builder/dist/desktop/index.js',
+    "id": "graphql-builder",
+    "name": "GraphQL 查询构建器",
+    "description": "可视化构建与检查 GraphQL 查询。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/graphql-builder/dist/core/index.js",
+      "cli": "tools/graphql-builder/dist/cli/index.js",
+      "desktop": "tools/graphql-builder/dist/desktop/index.js"
     },
-    bin: 'td-graphql-builder',
+    "bin": "td-graphql-builder"
   },
   {
-    id: 'html-entity',
-    name: 'HTML 实体编解码',
-    description: '编码与解码 HTML 实体及数字字符引用。',
-    category: 'dev',
-    entry: {
-      core: 'tools/html-entity/dist/core/index.js',
-      cli: 'tools/html-entity/dist/cli/index.js',
-      desktop: 'tools/html-entity/dist/desktop/index.js',
+    "id": "html-entity",
+    "name": "HTML 实体编解码",
+    "description": "编码与解码 HTML 实体及数字字符引用。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/html-entity/dist/core/index.js",
+      "cli": "tools/html-entity/dist/cli/index.js",
+      "desktop": "tools/html-entity/dist/desktop/index.js"
     },
-    bin: 'td-html-entity',
+    "bin": "td-html-entity"
   },
   {
-    id: 'http-codes',
-    name: 'HTTP 状态码',
-    description: '按状态码、名称或描述查询 HTTP 状态码。',
-    category: 'dev',
-    entry: {
-      core: 'tools/http-codes/dist/core/index.js',
-      cli: 'tools/http-codes/dist/cli/index.js',
-      desktop: 'tools/http-codes/dist/desktop/index.js',
+    "id": "http-codes",
+    "name": "HTTP 状态码",
+    "description": "按状态码、名称或描述查询 HTTP 状态码。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/http-codes/dist/core/index.js",
+      "cli": "tools/http-codes/dist/cli/index.js",
+      "desktop": "tools/http-codes/dist/desktop/index.js"
     },
-    bin: 'td-http-codes',
+    "bin": "td-http-codes"
   },
   {
-    id: 'invoice-tax',
-    name: '发票税额计算',
-    description: '计算发票小计、折扣、税额与合计。',
-    category: 'work',
-    entry: {
-      core: 'tools/invoice-tax/dist/core/index.js',
-      cli: 'tools/invoice-tax/dist/cli/index.js',
-      desktop: 'tools/invoice-tax/dist/desktop/index.js',
+    "id": "invoice-tax",
+    "name": "发票税额计算",
+    "description": "计算发票小计、折扣、税额与合计。",
+    "category": "work",
+    "entry": {
+      "core": "tools/invoice-tax/dist/core/index.js",
+      "cli": "tools/invoice-tax/dist/cli/index.js",
+      "desktop": "tools/invoice-tax/dist/desktop/index.js"
     },
-    bin: 'td-invoice-tax',
+    "bin": "td-invoice-tax"
   },
   {
-    id: 'json-formatter',
-    name: 'JSON 格式化',
-    description: 'JSON 美化、压缩与校验。',
-    category: 'dev',
-    entry: {
-      core: 'tools/json-formatter/dist/core/index.js',
-      cli: 'tools/json-formatter/dist/cli/index.js',
-      desktop: 'tools/json-formatter/dist/desktop/index.js',
+    "id": "json-formatter",
+    "name": "JSON 格式化",
+    "description": "JSON 美化、压缩与校验。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/json-formatter/dist/core/index.js",
+      "cli": "tools/json-formatter/dist/cli/index.js",
+      "desktop": "tools/json-formatter/dist/desktop/index.js"
     },
-    bin: 'td-json-formatter',
+    "bin": "td-json-formatter"
   },
   {
-    id: 'jwt-decoder',
-    name: 'JWT 解码器',
-    description: '不校验地解码与查看 JWT 令牌。',
-    category: 'dev',
-    entry: {
-      core: 'tools/jwt-decoder/dist/core/index.js',
-      cli: 'tools/jwt-decoder/dist/cli/index.js',
-      desktop: 'tools/jwt-decoder/dist/desktop/index.js',
+    "id": "jwt-decoder",
+    "name": "JWT 解码器",
+    "description": "不校验地解码与查看 JWT 令牌。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/jwt-decoder/dist/core/index.js",
+      "cli": "tools/jwt-decoder/dist/cli/index.js",
+      "desktop": "tools/jwt-decoder/dist/desktop/index.js"
     },
-    bin: 'td-jwt-decoder',
+    "bin": "td-jwt-decoder"
   },
   {
-    id: 'lunar-calendar',
-    name: '农历 / 阴历查询',
-    description: '公历转农历、生肖、二十四节气、节日查询',
-    category: 'utility',
-    entry: {
-      core: 'tools/lunar-calendar/dist/core/index.js',
-      cli: 'tools/lunar-calendar/dist/cli/index.js',
-      desktop: 'tools/lunar-calendar/dist/desktop/index.js',
+    "id": "lunar-calendar",
+    "name": "农历 / 阴历查询",
+    "description": "公历转农历、生肖、二十四节气、节日查询",
+    "category": "utility",
+    "entry": {
+      "core": "tools/lunar-calendar/dist/core/index.js",
+      "cli": "tools/lunar-calendar/dist/cli/index.js",
+      "desktop": "tools/lunar-calendar/dist/desktop/index.js"
     },
-    bin: 'td-lunar-calendar',
+    "bin": "td-lunar-calendar"
   },
   {
-    id: 'markdown-preview',
-    name: 'Markdown 预览',
-    description: '将 Markdown 实时渲染为 HTML。',
-    category: 'dev',
-    entry: {
-      core: 'tools/markdown-preview/dist/core/index.js',
-      cli: 'tools/markdown-preview/dist/cli/index.js',
-      desktop: 'tools/markdown-preview/dist/desktop/index.js',
+    "id": "markdown-preview",
+    "name": "Markdown 预览",
+    "description": "将 Markdown 实时渲染为 HTML。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/markdown-preview/dist/core/index.js",
+      "cli": "tools/markdown-preview/dist/cli/index.js",
+      "desktop": "tools/markdown-preview/dist/desktop/index.js"
     },
-    bin: 'td-markdown-preview',
+    "bin": "td-markdown-preview"
   },
   {
-    id: 'mortgage',
-    name: '房贷 / 车贷计算器',
-    description: '计算月供、总利息与还款计划。',
-    category: 'work',
-    entry: {
-      core: 'tools/mortgage/dist/core/index.js',
-      cli: 'tools/mortgage/dist/cli/index.js',
-      desktop: 'tools/mortgage/dist/desktop/index.js',
+    "id": "mortgage",
+    "name": "房贷 / 车贷计算器",
+    "description": "计算月供、总利息与还款计划。",
+    "category": "work",
+    "entry": {
+      "core": "tools/mortgage/dist/core/index.js",
+      "cli": "tools/mortgage/dist/cli/index.js",
+      "desktop": "tools/mortgage/dist/desktop/index.js"
     },
-    bin: 'td-mortgage',
+    "bin": "td-mortgage"
   },
   {
-    id: 'paint-floor',
-    name: '墙漆 / 地板用量计算',
-    description: '计算涂刷面积所需油漆升数与地板箱数（含损耗）。',
-    category: 'life',
-    entry: {
-      core: 'tools/paint-floor/dist/core/index.js',
-      cli: 'tools/paint-floor/dist/cli/index.js',
-      desktop: 'tools/paint-floor/dist/desktop/index.js',
+    "id": "paint-floor",
+    "name": "墙漆 / 地板用量计算",
+    "description": "计算涂刷面积所需油漆升数与地板箱数（含损耗）。",
+    "category": "life",
+    "entry": {
+      "core": "tools/paint-floor/dist/core/index.js",
+      "cli": "tools/paint-floor/dist/cli/index.js",
+      "desktop": "tools/paint-floor/dist/desktop/index.js"
     },
-    bin: 'td-paint-floor',
+    "bin": "td-paint-floor"
   },
   {
-    id: 'password-generator',
-    name: '密码生成器',
-    description: '生成带熵值的安全随机密码。',
-    category: 'dev',
-    entry: {
-      core: 'tools/password-generator/dist/core/index.js',
-      cli: 'tools/password-generator/dist/cli/index.js',
-      desktop: 'tools/password-generator/dist/desktop/index.js',
+    "id": "password-generator",
+    "name": "密码生成器",
+    "description": "生成带熵值的安全随机密码。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/password-generator/dist/core/index.js",
+      "cli": "tools/password-generator/dist/cli/index.js",
+      "desktop": "tools/password-generator/dist/desktop/index.js"
     },
-    bin: 'td-password-generator',
+    "bin": "td-password-generator"
   },
   {
-    id: 'password-strength',
-    name: '密码强度检测',
-    description: '分析密码强度与熵值。',
-    category: 'life',
-    entry: {
-      core: 'tools/password-strength/dist/core/index.js',
-      cli: 'tools/password-strength/dist/cli/index.js',
-      desktop: 'tools/password-strength/dist/desktop/index.js',
+    "id": "password-strength",
+    "name": "密码强度检测",
+    "description": "分析密码强度与熵值。",
+    "category": "life",
+    "entry": {
+      "core": "tools/password-strength/dist/core/index.js",
+      "cli": "tools/password-strength/dist/cli/index.js",
+      "desktop": "tools/password-strength/dist/desktop/index.js"
     },
-    bin: 'td-password-strength',
+    "bin": "td-password-strength"
   },
   {
-    id: 'personal-budget',
-    name: '个人记账 / 预算',
-    description: '汇总收入、支出、结余、储蓄率与分类。',
-    category: 'life',
-    entry: {
-      core: 'tools/personal-budget/dist/core/index.js',
-      cli: 'tools/personal-budget/dist/cli/index.js',
-      desktop: 'tools/personal-budget/dist/desktop/index.js',
+    "id": "personal-budget",
+    "name": "个人记账 / 预算",
+    "description": "汇总收入、支出、结余、储蓄率与分类。",
+    "category": "life",
+    "entry": {
+      "core": "tools/personal-budget/dist/core/index.js",
+      "cli": "tools/personal-budget/dist/cli/index.js",
+      "desktop": "tools/personal-budget/dist/desktop/index.js"
     },
-    bin: 'td-personal-budget',
+    "bin": "td-personal-budget"
   },
   {
-    id: 'placeholder-text',
-    name: '占位文本生成',
-    description: '生成 Lorem Ipsum / 随机占位文本。',
-    category: 'work',
-    entry: {
-      core: 'tools/placeholder-text/dist/core/index.js',
-      cli: 'tools/placeholder-text/dist/cli/index.js',
-      desktop: 'tools/placeholder-text/dist/desktop/index.js',
+    "id": "placeholder-text",
+    "name": "占位文本生成",
+    "description": "生成 Lorem Ipsum / 随机占位文本。",
+    "category": "work",
+    "entry": {
+      "core": "tools/placeholder-text/dist/core/index.js",
+      "cli": "tools/placeholder-text/dist/cli/index.js",
+      "desktop": "tools/placeholder-text/dist/desktop/index.js"
     },
-    bin: 'td-placeholder-text',
+    "bin": "td-placeholder-text"
   },
   {
-    id: 'pomodoro',
-    name: '番茄钟 / 专注计时',
-    description: '生成番茄工作/休息时间表。',
-    category: 'work',
-    entry: {
-      core: 'tools/pomodoro/dist/core/index.js',
-      cli: 'tools/pomodoro/dist/cli/index.js',
-      desktop: 'tools/pomodoro/dist/desktop/index.js',
+    "id": "pomodoro",
+    "name": "番茄钟 / 专注计时",
+    "description": "生成番茄工作/休息时间表。",
+    "category": "work",
+    "entry": {
+      "core": "tools/pomodoro/dist/core/index.js",
+      "cli": "tools/pomodoro/dist/cli/index.js",
+      "desktop": "tools/pomodoro/dist/desktop/index.js"
     },
-    bin: 'td-pomodoro',
+    "bin": "td-pomodoro"
   },
   {
-    id: 'qr-code',
-    name: '二维码生成',
-    description: '根据文本生成二维码图片。',
-    category: 'work',
-    entry: {
-      core: 'tools/qr-code/dist/core/index.js',
-      cli: 'tools/qr-code/dist/cli/index.js',
-      desktop: 'tools/qr-code/dist/desktop/index.js',
+    "id": "qr-code",
+    "name": "二维码生成",
+    "description": "根据文本生成二维码图片。",
+    "category": "work",
+    "entry": {
+      "core": "tools/qr-code/dist/core/index.js",
+      "cli": "tools/qr-code/dist/cli/index.js",
+      "desktop": "tools/qr-code/dist/desktop/index.js"
     },
-    bin: 'td-qr-code',
+    "bin": "td-qr-code"
   },
   {
-    id: 'random-picker',
-    name: '随机抽签 / 分组',
-    description: '随机抽取、打乱或分组。',
-    category: 'life',
-    entry: {
-      core: 'tools/random-picker/dist/core/index.js',
-      cli: 'tools/random-picker/dist/cli/index.js',
-      desktop: 'tools/random-picker/dist/desktop/index.js',
+    "id": "random-picker",
+    "name": "随机抽签 / 分组",
+    "description": "随机抽取、打乱或分组。",
+    "category": "life",
+    "entry": {
+      "core": "tools/random-picker/dist/core/index.js",
+      "cli": "tools/random-picker/dist/cli/index.js",
+      "desktop": "tools/random-picker/dist/desktop/index.js"
     },
-    bin: 'td-random-picker',
+    "bin": "td-random-picker"
   },
   {
-    id: 'reading-time',
-    name: '阅读时间估算',
-    description: '估算文本阅读时间。',
-    category: 'work',
-    entry: {
-      core: 'tools/reading-time/dist/core/index.js',
-      cli: 'tools/reading-time/dist/cli/index.js',
-      desktop: 'tools/reading-time/dist/desktop/index.js',
+    "id": "reading-time",
+    "name": "阅读时间估算",
+    "description": "估算文本阅读时间。",
+    "category": "work",
+    "entry": {
+      "core": "tools/reading-time/dist/core/index.js",
+      "cli": "tools/reading-time/dist/cli/index.js",
+      "desktop": "tools/reading-time/dist/desktop/index.js"
     },
-    bin: 'td-reading-time',
+    "bin": "td-reading-time"
   },
   {
-    id: 'regex-tester',
-    name: '正则测试器',
-    description: '实时高亮匹配地测试正则表达式。',
-    category: 'dev',
-    entry: {
-      core: 'tools/regex-tester/dist/core/index.js',
-      cli: 'tools/regex-tester/dist/cli/index.js',
-      desktop: 'tools/regex-tester/dist/desktop/index.js',
+    "id": "regex-tester",
+    "name": "正则测试器",
+    "description": "实时高亮匹配地测试正则表达式。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/regex-tester/dist/core/index.js",
+      "cli": "tools/regex-tester/dist/cli/index.js",
+      "desktop": "tools/regex-tester/dist/desktop/index.js"
     },
-    bin: 'td-regex-tester',
+    "bin": "td-regex-tester"
   },
   {
-    id: 'screen-color-picker',
-    name: '屏幕取色器',
-    description: '通过 EyeDropper 取色并转换 hex/rgb/hsl。',
-    category: 'life',
-    entry: {
-      core: 'tools/screen-color-picker/dist/core/index.js',
-      cli: 'tools/screen-color-picker/dist/cli/index.js',
-      desktop: 'tools/screen-color-picker/dist/desktop/index.js',
+    "id": "screen-color-picker",
+    "name": "屏幕取色器",
+    "description": "通过 EyeDropper 取色并转换 hex/rgb/hsl。",
+    "category": "life",
+    "entry": {
+      "core": "tools/screen-color-picker/dist/core/index.js",
+      "cli": "tools/screen-color-picker/dist/cli/index.js",
+      "desktop": "tools/screen-color-picker/dist/desktop/index.js"
     },
-    bin: 'td-screen-color-picker',
+    "bin": "td-screen-color-picker"
   },
   {
-    id: 'sql-formatter',
-    name: 'SQL 格式化',
-    description: '格式化与美化 SQL 查询。',
-    category: 'dev',
-    entry: {
-      core: 'tools/sql-formatter/dist/core/index.js',
-      cli: 'tools/sql-formatter/dist/cli/index.js',
-      desktop: 'tools/sql-formatter/dist/desktop/index.js',
+    "id": "sql-formatter",
+    "name": "SQL 格式化",
+    "description": "格式化与美化 SQL 查询。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/sql-formatter/dist/core/index.js",
+      "cli": "tools/sql-formatter/dist/cli/index.js",
+      "desktop": "tools/sql-formatter/dist/desktop/index.js"
     },
-    bin: 'td-sql-formatter',
+    "bin": "td-sql-formatter"
   },
   {
-    id: 'ssl-decoder',
-    name: 'SSL 证书解码',
-    description: '解码与查看 SSL/TLS 证书详情。',
-    category: 'dev',
-    entry: {
-      core: 'tools/ssl-decoder/dist/core/index.js',
-      cli: 'tools/ssl-decoder/dist/cli/index.js',
-      desktop: 'tools/ssl-decoder/dist/desktop/index.js',
+    "id": "ssl-decoder",
+    "name": "SSL 证书解码",
+    "description": "解码与查看 SSL/TLS 证书详情。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/ssl-decoder/dist/core/index.js",
+      "cli": "tools/ssl-decoder/dist/cli/index.js",
+      "desktop": "tools/ssl-decoder/dist/desktop/index.js"
     },
-    bin: 'td-ssl-decoder',
+    "bin": "td-ssl-decoder"
   },
   {
-    id: 'text-hash',
-    name: '文本哈希',
-    description: '通过 Web Crypto 计算 SHA-1/SHA-256/SHA-512 哈希。',
-    category: 'dev',
-    entry: {
-      core: 'tools/text-hash/dist/core/index.js',
-      cli: 'tools/text-hash/dist/cli/index.js',
-      desktop: 'tools/text-hash/dist/desktop/index.js',
+    "id": "text-hash",
+    "name": "文本哈希",
+    "description": "通过 Web Crypto 计算 SHA-1/SHA-256/SHA-512 哈希。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/text-hash/dist/core/index.js",
+      "cli": "tools/text-hash/dist/cli/index.js",
+      "desktop": "tools/text-hash/dist/desktop/index.js"
     },
-    bin: 'td-text-hash',
+    "bin": "td-text-hash"
   },
   {
-    id: 'text-stats',
-    name: '文本统计',
-    description: '计算文本统计信息。',
-    category: 'work',
-    entry: {
-      core: 'tools/text-stats/dist/core/index.js',
-      cli: 'tools/text-stats/dist/cli/index.js',
-      desktop: 'tools/text-stats/dist/desktop/index.js',
+    "id": "text-stats",
+    "name": "文本统计",
+    "description": "计算文本统计信息。",
+    "category": "work",
+    "entry": {
+      "core": "tools/text-stats/dist/core/index.js",
+      "cli": "tools/text-stats/dist/cli/index.js",
+      "desktop": "tools/text-stats/dist/desktop/index.js"
     },
-    bin: 'td-text-stats',
+    "bin": "td-text-stats"
   },
   {
-    id: 'tile-calc',
-    name: '瓷砖 / 地板铺贴计算',
-    description: '计算覆盖面积所需瓷砖与箱数（含填缝与损耗）。',
-    category: 'life',
-    entry: {
-      core: 'tools/tile-calc/dist/core/index.js',
-      cli: 'tools/tile-calc/dist/cli/index.js',
-      desktop: 'tools/tile-calc/dist/desktop/index.js',
+    "id": "tile-calc",
+    "name": "瓷砖 / 地板铺贴计算",
+    "description": "计算覆盖面积所需瓷砖与箱数（含填缝与损耗）。",
+    "category": "life",
+    "entry": {
+      "core": "tools/tile-calc/dist/core/index.js",
+      "cli": "tools/tile-calc/dist/cli/index.js",
+      "desktop": "tools/tile-calc/dist/desktop/index.js"
     },
-    bin: 'td-tile-calc',
+    "bin": "td-tile-calc"
   },
   {
-    id: 'timestamp',
-    name: '时间戳转换',
-    description: '在 Unix 时间戳与日期间转换。',
-    category: 'work',
-    entry: {
-      core: 'tools/timestamp/dist/core/index.js',
-      cli: 'tools/timestamp/dist/cli/index.js',
-      desktop: 'tools/timestamp/dist/desktop/index.js',
+    "id": "timestamp",
+    "name": "时间戳转换",
+    "description": "在 Unix 时间戳与日期间转换。",
+    "category": "work",
+    "entry": {
+      "core": "tools/timestamp/dist/core/index.js",
+      "cli": "tools/timestamp/dist/cli/index.js",
+      "desktop": "tools/timestamp/dist/desktop/index.js"
     },
-    bin: 'td-timestamp',
+    "bin": "td-timestamp"
   },
   {
-    id: 'timezone-converter',
-    name: '两地时间 / 时区转换',
-    description: '在时区间转换时间（支持夏令时）。',
-    category: 'work',
-    entry: {
-      core: 'tools/timezone-converter/dist/core/index.js',
-      cli: 'tools/timezone-converter/dist/cli/index.js',
-      desktop: 'tools/timezone-converter/dist/desktop/index.js',
+    "id": "timezone-converter",
+    "name": "两地时间 / 时区转换",
+    "description": "在时区间转换时间（支持夏令时）。",
+    "category": "work",
+    "entry": {
+      "core": "tools/timezone-converter/dist/core/index.js",
+      "cli": "tools/timezone-converter/dist/cli/index.js",
+      "desktop": "tools/timezone-converter/dist/desktop/index.js"
     },
-    bin: 'td-timezone-converter',
+    "bin": "td-timezone-converter"
   },
   {
-    id: 'tip-split',
-    name: '小费 / 分账计算器',
-    description: '计算小费、总额与人均分摊。',
-    category: 'work',
-    entry: {
-      core: 'tools/tip-split/dist/core/index.js',
-      cli: 'tools/tip-split/dist/cli/index.js',
-      desktop: 'tools/tip-split/dist/desktop/index.js',
+    "id": "tip-split",
+    "name": "小费 / 分账计算器",
+    "description": "计算小费、总额与人均分摊。",
+    "category": "work",
+    "entry": {
+      "core": "tools/tip-split/dist/core/index.js",
+      "cli": "tools/tip-split/dist/cli/index.js",
+      "desktop": "tools/tip-split/dist/desktop/index.js"
     },
-    bin: 'td-tip-split',
+    "bin": "td-tip-split"
   },
   {
-    id: 'unit-converter',
-    name: '单位换算器',
-    description: '在长度、质量、温度等单位间转换。',
-    category: 'work',
-    entry: {
-      core: 'tools/unit-converter/dist/core/index.js',
-      cli: 'tools/unit-converter/dist/cli/index.js',
-      desktop: 'tools/unit-converter/dist/desktop/index.js',
+    "id": "unit-converter",
+    "name": "单位换算器",
+    "description": "在长度、质量、温度等单位间转换。",
+    "category": "work",
+    "entry": {
+      "core": "tools/unit-converter/dist/core/index.js",
+      "cli": "tools/unit-converter/dist/cli/index.js",
+      "desktop": "tools/unit-converter/dist/desktop/index.js"
     },
-    bin: 'td-unit-converter',
+    "bin": "td-unit-converter"
   },
   {
-    id: 'unit-converter-life',
-    name: '生活单位换算',
-    description: '转换日常单位：烹饪、长度、面积。',
-    category: 'life',
-    entry: {
-      core: 'tools/unit-converter-life/dist/core/index.js',
-      cli: 'tools/unit-converter-life/dist/cli/index.js',
-      desktop: 'tools/unit-converter-life/dist/desktop/index.js',
+    "id": "unit-converter-life",
+    "name": "生活单位换算",
+    "description": "转换日常单位：烹饪、长度、面积。",
+    "category": "life",
+    "entry": {
+      "core": "tools/unit-converter-life/dist/core/index.js",
+      "cli": "tools/unit-converter-life/dist/cli/index.js",
+      "desktop": "tools/unit-converter-life/dist/desktop/index.js"
     },
-    bin: 'td-unit-converter-life',
+    "bin": "td-unit-converter-life"
   },
   {
-    id: 'url-codec',
-    name: 'URL 编解码',
-    description: '通过 encodeURIComponent/decodeURIComponent 编解码 URL。',
-    category: 'dev',
-    entry: {
-      core: 'tools/url-codec/dist/core/index.js',
-      cli: 'tools/url-codec/dist/cli/index.js',
-      desktop: 'tools/url-codec/dist/desktop/index.js',
+    "id": "url-codec",
+    "name": "URL 编解码",
+    "description": "通过 encodeURIComponent/decodeURIComponent 编解码 URL。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/url-codec/dist/core/index.js",
+      "cli": "tools/url-codec/dist/cli/index.js",
+      "desktop": "tools/url-codec/dist/desktop/index.js"
     },
-    bin: 'td-url-codec',
+    "bin": "td-url-codec"
   },
   {
-    id: 'url-parser',
-    name: 'URL 解析器',
-    description: '将 URL 解析为协议、主机、路径、查询与哈希。',
-    category: 'dev',
-    entry: {
-      core: 'tools/url-parser/dist/core/index.js',
-      cli: 'tools/url-parser/dist/cli/index.js',
-      desktop: 'tools/url-parser/dist/desktop/index.js',
+    "id": "url-parser",
+    "name": "URL 解析器",
+    "description": "将 URL 解析为协议、主机、路径、查询与哈希。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/url-parser/dist/core/index.js",
+      "cli": "tools/url-parser/dist/cli/index.js",
+      "desktop": "tools/url-parser/dist/desktop/index.js"
     },
-    bin: 'td-url-parser',
+    "bin": "td-url-parser"
   },
   {
-    id: 'uuid-gen',
-    name: 'UUID 生成器',
-    description: '生成随机 UUID（v4）。',
-    category: 'dev',
-    entry: {
-      core: 'tools/uuid-gen/dist/core/index.js',
-      cli: 'tools/uuid-gen/dist/cli/index.js',
-      desktop: 'tools/uuid-gen/dist/desktop/index.js',
+    "id": "uuid-gen",
+    "name": "UUID 生成器",
+    "description": "生成随机 UUID（v4）。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/uuid-gen/dist/core/index.js",
+      "cli": "tools/uuid-gen/dist/cli/index.js",
+      "desktop": "tools/uuid-gen/dist/desktop/index.js"
     },
-    bin: 'td-uuid-gen',
+    "bin": "td-uuid-gen"
   },
   {
-    id: 'xml-json',
-    name: 'XML / JSON 转换',
-    description: '在 XML 与 JSON 间转换。',
-    category: 'dev',
-    entry: {
-      core: 'tools/xml-json/dist/core/index.js',
-      cli: 'tools/xml-json/dist/cli/index.js',
-      desktop: 'tools/xml-json/dist/desktop/index.js',
+    "id": "xml-json",
+    "name": "XML / JSON 转换",
+    "description": "在 XML 与 JSON 间转换。",
+    "category": "dev",
+    "entry": {
+      "core": "tools/xml-json/dist/core/index.js",
+      "cli": "tools/xml-json/dist/cli/index.js",
+      "desktop": "tools/xml-json/dist/desktop/index.js"
     },
-    bin: 'td-xml-json',
-  },
+    "bin": "td-xml-json"
+  }
 ];
