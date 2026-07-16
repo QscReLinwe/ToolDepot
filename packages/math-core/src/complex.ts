@@ -110,8 +110,7 @@ export const cAsin = (z: Cpx): Cpx => {
 export const cAcos = (z: Cpx): Cpx => cSub(cpx(Math.PI / 2), cAsin(z));
 export const cAtan = (z: Cpx): Cpx => {
   const i = cpx(0, 1);
-  const q = cDiv(cAdd(i, z), cSub(i, z));
-  return cMul(cpx(0, 0.5), cLn(q));
+  return cMul(cpx(0, -0.5), cSub(cLn(cAdd(cpx(1), cMul(i, z))), cLn(cSub(cpx(1), cMul(i, z)))));
 };
 export const cFactorial = (z: Cpx): Cpx => {
   if (z.im !== 0) throw new CalcError('虚数不能阶乘');

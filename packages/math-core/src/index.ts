@@ -48,8 +48,8 @@ function toFraction(x: number): { num: number; den: number } | undefined {
 
 /* ===== Public evaluation API ===== */
 
-export function evaluate(expression: string, vars: Record<string, Cpx> = {}): number {
-  return evaluateExpr(expression, vars).re;
+export function evaluate(expression: string, vars: Record<string, Cpx> = {}): Cpx {
+  return evaluateExpr(expression, vars);
 }
 
 export function evaluateDetailed(expression: string, vars: Record<string, Cpx> = {}): CalcValue {

@@ -1,3 +1,4 @@
+import { CalcError } from './errors';
 import { getEvaluator } from './parser';
 
 /* ===== Graphing ===== */
@@ -56,8 +57,14 @@ export function renderCoordinates(opts: {
   const pad = opts.padding ?? 0;
   const w = opts.width - pad * 2;
   const h = opts.height - pad * 2;
-  const sx = w / (opts.xMax - opts.xMin || 1);
-  const sy = h / (opts.yMax - opts.yMin || 1);
+  if (opts.xMax <= opts.xMin) {
+    throw new CalcError('xMax must be greater than xMin');
+  }
+  if (opts.yMax <= opts.yMin) {
+    throw new CalcError('yMax must be greater than yMin');
+  }
+  const sx = w / (opts.xMax - opts.xMin);
+  const sy = h / (opts.yMax - opts.yMin);
   return {
     toPixelX: (x) => pad + (x - opts.xMin) * sx,
     toPixelY: (y) => pad + (opts.yMax - y) * sy,

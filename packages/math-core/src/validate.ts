@@ -1,14 +1,17 @@
 import { CalcError } from './errors';
+import { evaluateExpr } from './parser';
 
 /* ===== Expression validation (injection guard) ===== */
+
+// Characters the tokenizer accepts: digits, dot, operators, parens, abs/factorial/comma,
+// the special symbols π/Σ/∏/i, and any ASCII/Greek letter (functions, vars, constants).
+const ALLOWED_CHAR = /[0-9.+\-*/^%()|!,πΣ∏i a-zA-Zα-ωΑ-Ω]/;
 
 export function validateMathExpr(expr: string): void {
   if (typeof expr !== 'string') {
     throw new CalcError('表达式包含无效字符');
   }
-  let s = expr.replace(/(sin|cos|tan|asin|acos|atan|sqrt|abs|log|ln|exp|PI|E)/gi, ' ');
-  s = s.replace(/\b(x)\b/gi, ' ');
-  if (/[^0-9.+\-*/^%()\s]/.test(s)) {
+  if (!ALLOWED_CHAR.test(expr)) {
     throw new CalcError('表达式包含无效字符');
   }
   let depth = 0;
@@ -20,6 +23,12 @@ export function validateMathExpr(expr: string): void {
     }
   }
   if (depth !== 0) {
+    throw new CalcError('表达式包含无效字符');
+  }
+  // Ensure the expression actually parses (e.g. reject "1 2 3").
+  try {
+    evaluateExpr(expr, {});
+  } catch {
     throw new CalcError('表达式包含无效字符');
   }
 }
