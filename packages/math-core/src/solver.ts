@@ -1,3 +1,5 @@
+import { cpx } from './complex';
+import { CalcError } from './errors';
 import { getEvaluator } from './parser';
 import { validateMathExpr } from './validate';
 
@@ -17,8 +19,8 @@ function fFromEquation(equation: string): (x: number) => number {
   const left = sides[0]!.trim();
   const right = sides[1]!.trim();
 
-  validateMathExpr(left);
-  validateMathExpr(right);
+  validateMathExpr(left, { x: cpx(0) });
+  validateMathExpr(right, { x: cpx(0) });
 
   return (x: number) => getEvaluator(left)(x) - getEvaluator(right)(x);
 }
@@ -98,31 +100,24 @@ export function solveNewton(equation: string, guess = 0, maxIter = 100, tol = 1e
   while (iter < maxIter) {
     const deriv = df(x);
 
-    if (Math.abs(deriv) < 1e-14) {
-      const h = 1e-4;
-      const deriv2 = (f(x + h) - f(x - h)) / (2 * h);
-      if (Math.abs(deriv2) < 1e-14) {
-        break;
-      }
-      x = x - f(x) / deriv2;
-    } else {
-      const next = x - f(x) / deriv;
-      const maxStep = Math.max(1, Math.abs(x) * 10);
-      const step = next - x;
-      if (Math.abs(step) > maxStep) {
-        x = x + (step > 0 ? maxStep : -maxStep);
-      } else {
-        x = next;
-      }
+    if (!Number.isFinite(deriv) || Math.abs(deriv) < 1e-12) {
+      throw new CalcError('牛顿法在平坦区无法收敛：导数接近零，方程可能无解或无唯一解');
     }
+
+    const next = x - f(x) / deriv;
+    if (!Number.isFinite(next)) {
+      throw new CalcError('牛顿法发散：迭代产生非有限值');
+    }
+    const maxStep = Math.max(1, Math.abs(x) * 10);
+    const step = next - x;
+    x = Math.abs(step) > maxStep ? x + (step > 0 ? maxStep : -maxStep) : next;
 
     error = Math.abs(f(x));
-    if (error < tol) {
-      iter++;
-      break;
-    }
     iter++;
+    if (error < tol) {
+      return { x, iterations: iter, error };
+    }
   }
 
-  return { x, iterations: iter, error };
+  throw new CalcError(`牛顿法在 ${maxIter} 次迭代内未收敛（最终误差 ${error}）`);
 }

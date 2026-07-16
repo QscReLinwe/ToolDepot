@@ -9,50 +9,6 @@ export interface Cpx {
   im: number;
 }
 
-export class Complex {
-  re: number;
-  im: number;
-  constructor(re: number, im = 0) {
-    this.re = re;
-    this.im = im;
-  }
-  static from(c: Cpx): Complex {
-    return new Complex(c.re, c.im);
-  }
-  toCpx(): Cpx {
-    return { re: this.re, im: this.im };
-  }
-  magnitude(): number {
-    return Math.hypot(this.re, this.im);
-  }
-  phase(): number {
-    return Math.atan2(this.im, this.re);
-  }
-  toString(): string {
-    return formatComplex(this);
-  }
-}
-
-export function magnitude(c: Cpx): number {
-  return Math.hypot(c.re, c.im);
-}
-
-export function phase(c: Cpx): number {
-  return Math.atan2(c.im, c.re);
-}
-
-export function formatCpx(c: Cpx): string {
-  return formatComplex(c);
-}
-
-function formatComplex(c: Cpx): string {
-  const r = round(c.re);
-  const i = round(c.im);
-  if (i === 0) return String(r);
-  if (r === 0) return `${i}i`;
-  return `${r}${i < 0 ? '-' : '+'}${Math.abs(i)}i`;
-}
-
 export const cpx = (re: number, im = 0): Cpx => ({ re, im });
 export const cAdd = (a: Cpx, b: Cpx): Cpx => ({ re: a.re + b.re, im: a.im + b.im });
 export const cSub = (a: Cpx, b: Cpx): Cpx => ({ re: a.re - b.re, im: a.im - b.im });
@@ -65,7 +21,7 @@ export const cDiv = (a: Cpx, b: Cpx): Cpx => {
   if (d === 0) throw new CalcError('除以零');
   return { re: (a.re * b.re + a.im * b.im) / d, im: (a.im * b.re - a.re * b.im) / d };
 };
-export const cNeg = (a: Cpx): Cpx => ({ re: -a.re, im: -a.im });
+export const cNeg = (a: Cpx): Cpx => ({ re: -a.re, im: -a.im === 0 ? 0 : -a.im });
 export const cAbs = (a: Cpx): number => Math.hypot(a.re, a.im);
 
 export const cLn = (z: Cpx): Cpx => ({ re: Math.log(cAbs(z)), im: Math.atan2(z.im, z.re) });
@@ -88,7 +44,7 @@ export const cPow = (z: Cpx, w: Cpx): Cpx => {
   }
   const dbg = cExp(cMul(w, cLn(z)));
   if (!Number.isFinite(dbg.re) || !Number.isFinite(dbg.im)) {
-    console.error('cPow NaN', JSON.stringify({ z, w, ln: cLn(z), mul: cMul(w, cLn(z)), dbg }));
+    throw new CalcError(`cPow 产生非有限结果 (z=${JSON.stringify(z)}, w=${JSON.stringify(w)})`);
   }
   return dbg;
 };

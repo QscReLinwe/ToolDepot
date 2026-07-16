@@ -10,7 +10,7 @@ export * from './validate';
 
 /* ===== Value types ===== */
 
-import { type Cpx, round } from './complex';
+import { type Cpx, cpx, round } from './complex';
 import { evaluateExpr } from './parser';
 
 export interface CalcValue {
@@ -80,12 +80,12 @@ import { getEvaluator } from './parser';
 import { validateMathExpr } from './validate';
 
 export function evaluateFunction(fnExpr: string, x: number): number {
-  validateMathExpr(fnExpr);
+  validateMathExpr(fnExpr, { x: cpx(0) });
   return getEvaluator(fnExpr)(x);
 }
 
 export function evaluateAt(fnExpr: string, x: number): number {
-  validateMathExpr(fnExpr);
+  validateMathExpr(fnExpr, { x: cpx(0) });
   return getEvaluator(fnExpr)(x);
 }
 
@@ -96,11 +96,4 @@ export function slopeAt(fnExpr: string, x: number): number {
   const b = evalFn(x + h);
   if (!Number.isFinite(a) || !Number.isFinite(b)) return NaN;
   return (b - a) / (2 * h);
-}
-
-/* ===== Precision utility ===== */
-
-export function roundTo(value: number, decimals: number): number {
-  const f = 10 ** decimals;
-  return Math.round(value * f) / f;
 }

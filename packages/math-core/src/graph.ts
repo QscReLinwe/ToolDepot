@@ -12,6 +12,12 @@ export interface GraphRange {
 }
 
 export function getDefaultRange(fnExpr: string, xMin = -10, xMax = 10, samples = 200): GraphRange {
+  if (!Number.isFinite(xMin) || !Number.isFinite(xMax)) {
+    throw new CalcError('区间边界必须为有限数值');
+  }
+  if (xMax <= xMin) {
+    throw new CalcError('xMax 必须大于 xMin');
+  }
   const points: { x: number; y: number }[] = [];
   let yMin = Infinity;
   let yMax = -Infinity;
@@ -32,10 +38,6 @@ export function getDefaultRange(fnExpr: string, xMin = -10, xMax = 10, samples =
     yMax: Number.isFinite(yMax) ? yMax : 10,
     points,
   };
-}
-
-export function graphRange(fnExpr: string, xMin?: number, xMax?: number, samples?: number): GraphRange {
-  return getDefaultRange(fnExpr, xMin ?? -10, xMax ?? 10, samples ?? 200);
 }
 
 export interface CoordinateTransform {
