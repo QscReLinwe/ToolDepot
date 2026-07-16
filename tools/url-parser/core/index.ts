@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type UrlMode = 'parse' | 'build' | 'query';
 
@@ -67,7 +67,7 @@ function toResult(u: URL): UrlParseResult {
   };
 }
 
-export const tool = {
+export const tool: Tool<UrlParserInput, UrlParserOutput> = {
   id: 'url-parser',
   name: 'URL 解析器',
   description: '将 URL 解析为协议、主机、路径、查询与哈希。',

@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface ScreenColorPickerInput {
   hex?: string;
@@ -80,7 +80,7 @@ function toHslString({ r, g, b }: Rgb): string {
   return `hsl(${Math.round(h)}, ${Math.round(s * 100)}%, ${Math.round(l * 100)}%)`;
 }
 
-export const tool = {
+export const tool: Tool<ScreenColorPickerInput, ScreenColorPickerOutput> = {
   id: 'screen-color-picker',
   name: '屏幕取色器',
   description: '通过 EyeDropper 取色并转换 hex/rgb/hsl。',

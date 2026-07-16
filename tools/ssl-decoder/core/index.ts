@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface SslDecoderInput {
   /** PEM-encoded X.509 certificate (BEGIN CERTIFICATE ... END CERTIFICATE). */
@@ -267,7 +267,7 @@ function sha1(bytes: Uint8Array): string {
     .toUpperCase();
 }
 
-export const tool = {
+export const tool: Tool<SslDecoderInput, SslDecoderOutput> = {
   id: 'ssl-decoder',
   name: 'SSL 证书解码',
   description: '解码与查看 SSL/TLS 证书详情。',

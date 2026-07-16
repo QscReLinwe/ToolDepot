@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface TextStatsInput {
   /** Text to analyze */
@@ -21,7 +21,7 @@ function countCjkChars(text: string): number {
   return matches ? matches.length : 0;
 }
 
-export const tool = {
+export const tool: Tool<TextStatsInput, TextStatsOutput> = {
   id: 'text-stats',
   name: '文本统计',
   description: '计算文本统计信息。',

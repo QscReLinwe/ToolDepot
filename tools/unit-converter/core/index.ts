@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type UnitCategory =
   | 'length'
@@ -108,7 +108,7 @@ const CATEGORIES: Record<UnitCategory, CategoryDef> = {
   },
 };
 
-export const tool = {
+export const tool: Tool<UnitConverterInput, UnitConverterOutput> = {
   id: 'unit-converter',
   name: '单位换算器',
   description: '在长度、质量、温度等单位间转换。',

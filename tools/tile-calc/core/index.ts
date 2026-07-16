@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface TileCalcInput {
   areaSqm?: number;
@@ -26,7 +26,7 @@ function isFiniteNumber(v: unknown): v is number {
   return typeof v === 'number' && Number.isFinite(v);
 }
 
-export const tool = {
+export const tool: Tool<TileCalcInput, TileCalcOutput> = {
   id: 'tile-calc',
   name: '瓷砖 / 地板铺贴计算',
   description: '计算覆盖面积所需瓷砖与箱数（含填缝与损耗）。',

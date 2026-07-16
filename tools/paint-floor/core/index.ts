@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type PaintFloorMode = 'paint' | 'floor';
 
@@ -28,7 +28,7 @@ function isFiniteNumber(v: unknown): v is number {
   return typeof v === 'number' && Number.isFinite(v);
 }
 
-export const tool = {
+export const tool: Tool<PaintFloorInput, PaintFloorOutput> = {
   id: 'paint-floor',
   name: '墙漆 / 地板用量计算',
   description: '计算涂刷面积所需油漆升数与地板箱数（含损耗）。',

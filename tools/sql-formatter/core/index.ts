@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 import { format, type SqlLanguage as SqlFormatterLanguage } from 'sql-formatter';
 
 export type SqlLanguage = 'sql' | 'mysql' | 'postgresql' | 'sqlite' | 'mssql' | 'MariaDB' | 'db2' | 'plsql';
@@ -28,7 +28,7 @@ const LANGUAGE_MAP: Record<SqlLanguage, SqlFormatterLanguage> = {
   plsql: 'plsql',
 };
 
-export const tool = {
+export const tool: Tool<SqlFormatterInput, SqlFormatterOutput> = {
   id: 'sql-formatter',
   name: 'SQL 格式化',
   description: '格式化与美化 SQL 查询。',

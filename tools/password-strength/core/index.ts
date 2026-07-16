@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface PasswordStrengthInput {
   /** Password to analyze */
@@ -72,7 +72,7 @@ function estimateCrackTime(entropy: number): string {
   return 'centuries';
 }
 
-export const tool = {
+export const tool: Tool<PasswordStrengthInput, PasswordStrengthOutput> = {
   id: 'password-strength',
   name: '密码强度检测',
   description: '分析密码强度与熵值。',

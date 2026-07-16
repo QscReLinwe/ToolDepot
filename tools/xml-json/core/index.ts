@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 import { XMLBuilder, XMLParser } from 'fast-xml-parser';
 
 export type XmlJsonMode = 'xml2json' | 'json2xml';
@@ -28,7 +28,7 @@ const builder = new XMLBuilder({
   suppressEmptyNode: false,
 });
 
-export const tool = {
+export const tool: Tool<XmlJsonInput, XmlJsonOutput> = {
   id: 'xml-json',
   name: 'XML / JSON 转换',
   description: '在 XML 与 JSON 间转换。',

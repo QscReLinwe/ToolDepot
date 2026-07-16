@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface PasswordGeneratorInput {
   length?: number;
@@ -41,7 +41,7 @@ function randomIndex(maxExclusive: number, crypto: Crypto): number {
   return value % maxExclusive;
 }
 
-export const tool = {
+export const tool: Tool<PasswordGeneratorInput, PasswordGeneratorOutput> = {
   id: 'password-generator',
   name: '密码生成器',
   description: '生成带熵值的安全随机密码。',

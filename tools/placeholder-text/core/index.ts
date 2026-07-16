@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export type PlaceholderUnit = 'words' | 'sentences' | 'paragraphs';
 export type PlaceholderLanguage = 'en' | 'zh';
@@ -215,7 +215,7 @@ function makeZhSentence(): string {
   return `${words.join('')}。`;
 }
 
-export const tool = {
+export const tool: Tool<PlaceholderTextInput, PlaceholderTextOutput> = {
   id: 'placeholder-text',
   name: '占位文本生成',
   description: '生成 Lorem Ipsum / 随机占位文本。',

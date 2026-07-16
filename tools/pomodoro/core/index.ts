@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface PomodoroInput {
   /** Work duration in minutes (default 25) */
@@ -27,7 +27,7 @@ function isPositiveNumber(value: unknown): value is number {
   return typeof value === 'number' && Number.isFinite(value) && value > 0;
 }
 
-export const tool = {
+export const tool: Tool<PomodoroInput, PomodoroOutput> = {
   id: 'pomodoro',
   name: '番茄钟 / 专注计时',
   description: '生成番茄工作/休息时间表。',

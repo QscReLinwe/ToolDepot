@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface RegexTesterInput {
   /** Regular expression pattern. */
@@ -24,7 +24,7 @@ export interface RegexTesterOutput {
   error?: string;
 }
 
-export const tool = {
+export const tool: Tool<RegexTesterInput, RegexTesterOutput> = {
   id: 'regex-tester',
   name: '正则测试器',
   description: '实时高亮匹配地测试正则表达式。',

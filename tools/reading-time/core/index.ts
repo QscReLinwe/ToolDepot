@@ -1,4 +1,4 @@
-import type { ToolOutput } from '@tooldepot/types';
+import type { Tool, ToolOutput } from '@tooldepot/types';
 
 export interface ReadingTimeInput {
   /** Text to analyze */
@@ -27,7 +27,7 @@ function countCjkChars(text: string): number {
   return matches ? matches.length : 0;
 }
 
-export const tool = {
+export const tool: Tool<ReadingTimeInput, ReadingTimeOutput> = {
   id: 'reading-time',
   name: '阅读时间估算',
   description: '估算文本阅读时间。',
