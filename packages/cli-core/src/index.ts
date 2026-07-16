@@ -90,12 +90,6 @@ async function readStdin(): Promise<string> {
   });
 }
 
-export function createCliEntry<I, O = unknown>(tool: Tool<I, O>, options: Omit<CliOptions<I, O>, 'tool'>) {
-  return async (argv: string[] = process.argv.slice(2)) => {
-    await runCli(argv, { tool, ...options });
-  };
-}
-
 export function autoRun<I, O = unknown>(tool: Tool<I, O>, options: Omit<CliOptions<I, O>, 'tool'>) {
   if (import.meta.url === pathToFileURL(process.argv[1]!).href) {
     runCli(process.argv.slice(2), { tool, ...options }).catch((e) => {

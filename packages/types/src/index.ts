@@ -3,8 +3,31 @@
  * Consumed by tool packages (core/cli/desktop) and by hub (registry/loader).
  */
 
-/** Tool categorization. Closed set for first batch; open to arbitrary strings for future tools. */
-export type ToolCategory = 'format' | 'encode' | 'convert' | 'generate' | 'crypto' | 'utility' | 'dev' | (string & {});
+/**
+ * Tool categorization. Closed union of the real category literals used across the
+ * repo (enumerated from every tool core's `category:` field). Using a concrete union
+ * instead of `(string & {})` lets the type system reject typos and unknown categories.
+ * Kept as a plain union (not a const enum) to avoid isolatedModules emit issues.
+ */
+export type ToolCategory =
+  | 'convert'
+  | 'crypto'
+  | 'datetime'
+  | 'design'
+  | 'dev'
+  | 'developer'
+  | 'encode'
+  | 'finance'
+  | 'format'
+  | 'generate'
+  | 'generator'
+  | 'health'
+  | 'home'
+  | 'life'
+  | 'productivity'
+  | 'security'
+  | 'utility'
+  | 'work';
 
 /** Arbitrary input map passed to a tool's run(). Concrete tools narrow this via generics. */
 export type ToolInput = Record<string, unknown>;
